@@ -1,0 +1,40 @@
+.form__comment {
+    padding: 16px 24px;
+    background: #2f2f3a;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+.form__comment .ant-input-textarea {
+    width: 100%;
+    background: #3e3f44;
+    border-radius: 4px;
+}
+.form__comment .ant-form-item-explain.ant-form-item-explain-error {
+    display: none;
+}
+.form__comment .ant-form-item {
+    width: 100%;
+    border-radius: 4px;
+    display: block;
+    margin-bottom: 0;
+}
+.form__comment .ant-input-textarea textarea {
+    background: inherit;
+    border: none;
+    color: #fff;
+    min-height: 35px;
+    display: block;
+}
+.form__comment .ant-form-item-has-error :not(.ant-input-disabled).ant-input:focus {
+    outline: none;
+    box-shadow: none;
+}
+.form__comment .ant-input-textarea-show-count::after {
+    color: rgb(212 212 212 / 50%);
+    margin-left: 10px;
+    position: absolute;
+    right: 10px;
+    bottom: 22px;
+    background: #3e3f44;
+}

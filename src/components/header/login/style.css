@@ -1,0 +1,5 @@
+@media screen and (max-width: 700px) {
+    .group-login .group-login__title {
+        display: none;
+    }
+}

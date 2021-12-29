@@ -1,0 +1,22 @@
+.dropdown-menu_active {
+    left: -100%;
+}
+
+@media screen and (max-width: 900px) {
+    .group-menu {
+        left: -100%;
+    }
+    .group-menu__drop_down_bg {
+        background: transparent;
+        top: 0px;
+    }
+    .group-menu.active {
+        left: 0;
+    }
+    .group-menu.not_active {
+        left: -300%;
+    }
+    .toggle-menu {
+        display: block;
+    }
+}

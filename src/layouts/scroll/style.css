@@ -1,0 +1,24 @@
+.wrapper-scroll::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border: 5px solid #e8dfec;
+    display: none;
+    transition: all 0.4s ease-in-out;
+}
+
+.wrapper-scroll::-webkit-scrollbar {
+    width: 7px;
+    display: none;
+}
+.wrapper-scroll:hover::-webkit-scrollbar {
+    display: block;
+}
+::-webkit-scrollbar-thumb {
+    border-radius: 8px;
+    background: linear-gradient(0deg, #008aff, #00ffe7);
+}
+.wrapper-scroll {
+    transition: 0.3s ease-in-out;
+    overflow-y: overlay;
+    overflow-x: hidden;
+    place-content: start;
+}

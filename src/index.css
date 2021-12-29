@@ -1,0 +1,106 @@
+@import url("https://fonts.googleapis.com/css2?family=Glory:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap");
+* {
+    font-family: "Glory", sans-serif;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: rgba(23, 23, 31, 255);
+}
+.container-app {
+    max-width: 2000px;
+    margin: auto;
+}
+.outline-none {
+    outline: none;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    margin-bottom: 0;
+}
+.grid-template-columns {
+    grid-template-columns: repeat(auto-fit, minmax(296px, 1fr));
+}
+.grid-template-columns-3 {
+    grid-template-columns: repeat(auto-fit, minmax(369px, 1fr));
+}
+.grid-template-columns-4 {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+}
+.min-height-screen {
+    min-height: 80vh;
+}
+
+.object-revert {
+    object-fit: revert;
+}
+
+.transform-50-center {
+    transform: translate(-50%, -50%);
+}
+.max-h-64 {
+    max-height: 16rem;
+}
+.transition-ease-in-out {
+    transition: 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.1);
+}
+
+.spin-around {
+    animation: lds-dual-ring 4s linear infinite;
+}
+
+@keyframes lds-dual-ring {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+::-webkit-scrollbar {
+    width: 6px;
+    transition: 0.3s ease-in;
+}
+::-webkit-scrollbar-track {
+    border: 5px solid #f1f1f1;
+}
+::-webkit-scrollbar-thumb {
+    background: #06c1d4;
+    border-radius: 3px;
+    z-index: 100;
+}
+/* ant design */
+.ant-popover-inner {
+    padding: 8px;
+    background-color: #2f2f3a;
+}
+.ant-popover-arrow-content {
+    background-color: #2f2f3a;
+}
+
+@media screen and (max-width: 480px) {
+    .grid-template-columns-4 {
+        grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    }
+}
+
+@media screen and (max-width: 380px) {
+    .grid-template-columns-4 {
+        grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
+    }
+}
+
+@media screen and (max-width: 900px) {
+    .container-app {
+        padding: 0;
+    }
+    .group-app {
+        padding-top: 1rem;
+    }
+}

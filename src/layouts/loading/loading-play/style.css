@@ -1,0 +1,180 @@
+#cssload-loader ul {
+    list-style: none;
+    width: 52px;
+}
+#cssload-loader ul li {
+    position: absolute;
+    width: 5px;
+    height: 0;
+    background-color: #fff;
+    bottom: 0;
+}
+
+#cssload-loader li:nth-child(1) {
+    left: 0;
+    animation: cssload-sequence1 0.75s ease infinite 0;
+    -o-animation: cssload-sequence1 0.75s ease infinite 0;
+    -ms-animation: cssload-sequence1 0.75s ease infinite 0;
+    -webkit-animation: cssload-sequence1 0.75s ease infinite 0;
+    -moz-animation: cssload-sequence1 0.75s ease infinite 0;
+}
+#cssload-loader li:nth-child(2) {
+    left: 9px;
+    animation: cssload-sequence2 0.75s ease infinite 0.075s;
+    -o-animation: cssload-sequence2 0.75s ease infinite 0.075s;
+    -ms-animation: cssload-sequence2 0.75s ease infinite 0.075s;
+    -webkit-animation: cssload-sequence2 0.75s ease infinite 0.075s;
+    -moz-animation: cssload-sequence2 0.75s ease infinite 0.075s;
+}
+#cssload-loader li:nth-child(3) {
+    left: 17px;
+    animation: cssload-sequence1 0.75s ease-in-out infinite 0.15s;
+    -o-animation: cssload-sequence1 0.75s ease-in-out infinite 0.15s;
+    -ms-animation: cssload-sequence1 0.75s ease-in-out infinite 0.15s;
+    -webkit-animation: cssload-sequence1 0.75s ease-in-out infinite 0.15s;
+    -moz-animation: cssload-sequence1 0.75s ease-in-out infinite 0.15s;
+}
+#cssload-loader li:nth-child(4) {
+    left: 26px;
+    animation: cssload-sequence2 0.75s ease-in infinite 0.225s;
+    -o-animation: cssload-sequence2 0.75s ease-in infinite 0.225s;
+    -ms-animation: cssload-sequence2 0.75s ease-in infinite 0.225s;
+    -webkit-animation: cssload-sequence2 0.75s ease-in infinite 0.225s;
+    -moz-animation: cssload-sequence2 0.75s ease-in infinite 0.225s;
+}
+#cssload-loader li:nth-child(5) {
+    left: 34px;
+    animation: cssload-sequence1 0.75s ease-in-out infinite 0.3s;
+    -o-animation: cssload-sequence1 0.75s ease-in-out infinite 0.3s;
+    -ms-animation: cssload-sequence1 0.75s ease-in-out infinite 0.3s;
+    -webkit-animation: cssload-sequence1 0.75s ease-in-out infinite 0.3s;
+    -moz-animation: cssload-sequence1 0.75s ease-in-out infinite 0.3s;
+}
+#cssload-loader li:nth-child(6) {
+    left: 43px;
+    animation: cssload-sequence2 0.75s ease infinite 0.375s;
+    -o-animation: cssload-sequence2 0.75s ease infinite 0.375s;
+    -ms-animation: cssload-sequence2 0.75s ease infinite 0.375s;
+    -webkit-animation: cssload-sequence2 0.75s ease infinite 0.375s;
+    -moz-animation: cssload-sequence2 0.75s ease infinite 0.375s;
+}
+
+@keyframes cssload-sequence1 {
+    0% {
+        height: 6px;
+    }
+    50% {
+        height: 12px;
+    }
+    100% {
+        height: 6px;
+    }
+}
+
+@-o-keyframes cssload-sequence1 {
+    0% {
+        height: 6px;
+    }
+    50% {
+        height: 12px;
+    }
+    100% {
+        height: 6px;
+    }
+}
+
+@-ms-keyframes cssload-sequence1 {
+    0% {
+        height: 6px;
+    }
+    50% {
+        height: 12px;
+    }
+    100% {
+        height: 6px;
+    }
+}
+
+@-webkit-keyframes cssload-sequence1 {
+    0% {
+        height: 6px;
+    }
+    50% {
+        height: 12px;
+    }
+    100% {
+        height: 6px;
+    }
+}
+
+@-moz-keyframes cssload-sequence1 {
+    0% {
+        height: 6px;
+    }
+    50% {
+        height: 12px;
+    }
+    100% {
+        height: 6px;
+    }
+}
+
+@keyframes cssload-sequence2 {
+    0% {
+        height: 11px;
+    }
+    50% {
+        height: 20px;
+    }
+    100% {
+        height: 11px;
+    }
+}
+
+@-o-keyframes cssload-sequence2 {
+    0% {
+        height: 11px;
+    }
+    50% {
+        height: 20px;
+    }
+    100% {
+        height: 11px;
+    }
+}
+
+@-ms-keyframes cssload-sequence2 {
+    0% {
+        height: 11px;
+    }
+    50% {
+        height: 20px;
+    }
+    100% {
+        height: 11px;
+    }
+}
+
+@-webkit-keyframes cssload-sequence2 {
+    0% {
+        height: 11px;
+    }
+    50% {
+        height: 20px;
+    }
+    100% {
+        height: 11px;
+    }
+}
+
+@-moz-keyframes cssload-sequence2 {
+    0% {
+        height: 11px;
+    }
+    50% {
+        height: 20px;
+    }
+    100% {
+        height: 11px;
+    }
+}

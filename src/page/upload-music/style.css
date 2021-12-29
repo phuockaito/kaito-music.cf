@@ -1,0 +1,35 @@
+.group__upload__music {
+    display: grid;
+    min-height: inherit;
+    grid-row-gap: 20px;
+}
+.group_pagination {
+    display: flex;
+    align-items: end;
+    justify-content: center;
+}
+.group_pagination .ant-pagination li {
+    background: rgba(33, 33, 42, 255);
+    border: 1px solid rgba(33, 33, 42, 255);
+    color: #fff;
+}
+.group_pagination .ant-pagination .ant-pagination-item-active {
+    background: #3e3f44;
+    border: 1px solid #3e3f44;
+}
+.group_pagination .ant-pagination li a {
+    color: #fff;
+}
+/* prev and next */
+.group_pagination .ant-pagination li.ant-pagination-prev button,
+.group_pagination .ant-pagination li.ant-pagination-next button {
+    background: rgba(33, 33, 42, 255);
+    border: 1px solid rgba(33, 33, 42, 255);
+    display: flex;
+    color: #fff;
+    align-items: center;
+    justify-content: center;
+}
+.group_pagination .ant-pagination .ant-pagination-disabled button {
+    opacity: 0.5;
+}

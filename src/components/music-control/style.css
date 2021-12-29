@@ -1,0 +1,109 @@
+.group_music_control__search,
+.group_play_control__icon_list {
+    display: none;
+}
+.ant-popover-inner .ant-popover-inner-content {
+    padding: 0;
+}
+@media screen and (max-width: 700px) {
+    .group_play_control {
+        margin: 0 !important;
+        position: absolute;
+        bottom: 0;
+        grid-gap: 15px;
+    }
+    .group_music_control {
+        padding: 0;
+    }
+    .group_music_control__search {
+        z-index: 60;
+    }
+    .group_music_control__search,
+    .group_play_control__icon_list {
+        display: block;
+    }
+    .group_music_control__container {
+        height: 100%;
+        align-items: center;
+    }
+
+    .group_music_control.active-visible {
+        height: 100%;
+        z-index: 50;
+        position: fixed;
+        display: flex;
+        padding: 20px;
+        flex-direction: column;
+    }
+
+    .group_music_control__icon_list {
+        position: absolute;
+        top: 50%;
+        right: -15px;
+        transform: translate(-50%, -50%);
+    }
+    .group_music_control__icon_list > div {
+        grid-template-columns: repeat(1, minmax(0, 1fr));
+        place-items: center;
+        grid-gap: 30px;
+    }
+    .group_music_control.active-visible .group_music_control__play_music {
+        display: flex;
+        flex-direction: column;
+        align-content: space-between;
+        opacity: 1;
+    }
+    .group_music_control.active-hidden .group_music_control__play_music {
+        height: 0%;
+        opacity: 0;
+    }
+    .group_music_control__btn_play {
+        left: 15px;
+        bottom: 15px;
+    }
+    /* .group_music_control__dropdown */
+    .group_music_control__search {
+        width: 100%;
+    }
+    .group_music_control__dropdown {
+        padding: 3px 10px;
+        position: relative;
+        bottom: 0;
+        color: aliceblue;
+    }
+    .group_music_control__dropdown.active-hidden {
+        display: none;
+    }
+    /* image */
+    .group_music_control__image {
+        width: 100%;
+        height: 100%;
+        max-width: 200px;
+    }
+
+    .group_music_control__image_tile {
+        display: grid;
+        grid-row-gap: 15px;
+        height: 100%;
+        width: 100%;
+        place-items: center;
+        place-content: center;
+    }
+    .group_music_control__title {
+        margin-left: 0 !important;
+        text-align: center;
+        max-width: 100%;
+        width: 100%;
+        padding: 0 40px;
+    }
+    .group_music_control__icon {
+        margin-left: 0 !important;
+        justify-content: center;
+    }
+    .group_play_control__play {
+        grid-row: 1/3;
+    }
+    .group_play_control__play .ant-slider {
+        margin: 0;
+    }
+}

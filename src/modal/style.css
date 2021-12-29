@@ -1,0 +1,38 @@
+/* rgba(33,33,42,255) */
+.group__modal div {
+    background-color: rgba(33, 33, 42, 0.9);
+}
+.group__modal .ant-modal-header {
+    border-bottom: 2px solid #3e3f44;
+}
+.group__modal .ant-modal-footer {
+    border-top: 2px solid #3e3f44;
+}
+.ant-input-affix-wrapper,
+.group__modal input {
+    background-color: #3e3f44;
+    border: 1px solid #3e3f44;
+    color: #fff;
+}
+.ant-form-item-has-error :not(.ant-input-disabled).ant-input,
+.ant-form-item-has-error :not(.ant-input-affix-wrapper-disabled).ant-input-affix-wrapper,
+.ant-form-item-has-error :not(.ant-input-disabled).ant-input:hover,
+.ant-form-item-has-error :not(.ant-input-affix-wrapper-disabled).ant-input-affix-wrapper:hover {
+    background-color: #3e3f44;
+    border-color: #3e3f44;
+}
+.group__modal .ant-modal-close-x span {
+    color: #fff;
+    background-color: #3e3f44;
+    padding: 8px;
+    border-radius: 50%;
+    transition: cubic-bezier(0.23, 1, 0.32, 1) 0.5s;
+}
+.group__modal .ant-modal-close-x span:hover {
+    background-color: #ff3465;
+}
+.icon-input,
+.ant-input-password-icon,
+.ant-input-password-icon:hover {
+    color: #a5a6c4;
+}

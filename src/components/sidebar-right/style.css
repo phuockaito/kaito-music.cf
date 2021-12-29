@@ -1,0 +1,14 @@
+.ant-tabs-content.ant-tabs-content-top {
+    height: 100%;
+}
+.ant-tabs-dropdown-menu {
+    background-color: #2f2f3a;
+}
+.ant-tabs-dropdown-menu-item:hover {
+    background: #ff3465;
+}
+@media screen and (max-width: 700px) {
+    .group__playlist_icon_close {
+        display: block;
+    }
+}

@@ -1,0 +1,16 @@
+.group-image__music {
+    min-height: 188px;
+}
+.react-player {
+    display: none;
+}
+@media screen and (max-width: 450px) {
+    .group-image__music {
+        min-height: 150px;
+    }
+}
+@media screen and (max-width: 380px) {
+    .group-image__music {
+        min-height: 120px;
+    }
+}
