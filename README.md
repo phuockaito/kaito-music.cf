@@ -1,12 +1,10 @@
-<!-- This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app), using the [Redux](https://redux.js.org/) and [Redux Toolkit](https://redux-toolkit.js.org/) template. -->
-
 # Live demo: [https://kaitomusic.cf](https://kaitomusic.cf)
 
 ## API
 
 #### `URL`: <https://api-kaito-music.herokuapp.com>
 
-## Params default: `_limit=20&_page=1`
+## Params default: `_limit=20&_page=1` `||` Null
 
 ### `Get Trending` (`method: GET`): "URL/music/trending?`Params`"
 
@@ -87,7 +85,7 @@
 
     - params: { "_id": ?, _limit: ?, _page: ? }
 
-## favorite
+## Favorite
 
 ### `Create` (`method: POST`): "URL/favorite/create"
 
