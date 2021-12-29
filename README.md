@@ -1,44 +1,118 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app), using the [Redux](https://redux.js.org/) and [Redux Toolkit](https://redux-toolkit.js.org/) template.
+<!-- This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app), using the [Redux](https://redux.js.org/) and [Redux Toolkit](https://redux-toolkit.js.org/) template. -->
 
-## Available Scripts
+# Live demo: [https://kaitomusic.cf](https://kaitomusic.cf)
 
-In the project directory, you can run:
+## API
 
-### `yarn start`
+#### `URL`: <https://api-kaito-music.herokuapp.com>
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Params default: `_limit=20&_page=1`
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+### `Get Trending` (`method: GET`): "URL/music/trending?`Params`"
 
-### `yarn test`
+### `Get Favorite` (`method: GET`): "URL/music/favorite?`Params`"
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### `Get all` (`method: GET`): "URL/music/get-all?`Params`"
 
-### `yarn build`
+## Play list music
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### `Create` (`method: POST`): "URL/list-music/create"
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+    - Body: { "idMusic": ?, "nameList: ? }
+    - Authorization: Bearer  `token`
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### `Update` (`method: PUT`): "URL/list-music/update-name-list-music"
 
-### `yarn eject`
+    - Body: { "nameList": ?, "_id: ? }
+    - Authorization: Bearer  `token`
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+### `Delete` (`method: PUT`): "URL/list-music/delete-list-music"
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+    -   params: { "_id": ? }
+    -   Authorization: Bearer `token`
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+### `Get all list music` (`method: GET`): "URL/list-music/get-list?`Params`"
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+    - Authorization: Bearer  `token`
 
-## Learn More
+### `Get list music` (`method: GET`): "URL/list-music/get-by-id"
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+    - params: { "_id": ? }
+    - Authorization: Bearer `token`
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Music
+
+### `Get music` (`method: GET`): "URL/music/get-by-id"
+
+    - params: { "_id": ? }
+
+## Play history
+
+### `Create` (`method: POST`): "URL/play-history/create"
+
+     - Body: { "idMusic": ? }
+     - Authorization: Bearer `token`
+
+### `Get music play history` (`method: GET`): "URL/play-history/get-by-token?`Params`"
+
+     - Authorization: Bearer `token`
+
+## Comment
+
+### `Create` (`method: POST`): "URL/comment/get-by-id-music"
+
+     - Body: { "content": ?, "id_music": ? }
+     - Authorization: Bearer `token`
+
+### `History comment music` (`method: GET`): "URL/get-list-comment-authorization-token?`Params`"
+
+     - Authorization: Bearer `token`
+
+### `Reply comment music` (`method: POST`): "URL/comment/get-by-id-music"
+
+     - Body: { "content": ?, "id_music": ? ,id_reply: id comment reply}
+     - Authorization: Bearer `token`
+
+### `Delete` (`method: DELETE`): "URL/comment/get-by-id-music"
+
+     - params: { "_id": ?}
+     - Authorization: Bearer `token`
+
+### `Update` (`method: PUT`): "URL/update-comment-by-id"
+
+     - body: {  "content": ? ,"_id": ?}
+     - Authorization: Bearer `token`
+
+### `Get comment music` (`method: GET`): "URL/comment/get-by-id-music"
+
+    - params: { "_id": ?, _limit: ?, _page: ? }
+
+## favorite
+
+### `Create` (`method: POST`): "URL/favorite/create"
+
+    - Body: { "idMusic": ? }
+    - Authorization: Bearer `token`
+
+### `Get music favorite` (`method: GET`): "URL/favorite/get-authorization-token?`Params`"
+
+    - Authorization: Bearer `token`
+
+### `Delete` (`method: DELETE`): "URL/delete-by-id"
+
+    - params: { "_id": ? }
+    - Authorization: Bearer `token`
+
+## Account
+
+### `Register` (`method: POST`):"URL/account"
+
+    - Body: { "userName": ? , "password": ? , "email": ?}
+
+### `login` (`method: POST`): "URL/login"
+
+    - Body: { "email": ? ,"password": ? }
+
+### `Profile` (`method: GET`): "URL/profile"
+
+    - Authorization: Bearer `token`
