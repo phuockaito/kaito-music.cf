@@ -12,6 +12,12 @@
 
 ### `Get all` (`method: GET`): "URL/music/get-all?`Params`"
 
+## Search
+
+### `search by (category,singer name, song name, mv)` (`method: GET`): "URL/search"
+
+    -   params: { "query": ?, "_limit": ?, "_page": ? }
+
 ## Play list music
 
 ### `Create` (`method: POST`): "URL/list-music/create"

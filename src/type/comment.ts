@@ -1,4 +1,4 @@
-import { MusicType, isBoolean, Account, StateResponse } from "type";
+import { Account } from "type";
 
 export interface Comment {
     _id: string;
@@ -14,5 +14,18 @@ export interface Comment {
     updatedAt: Date;
     __v: number;
 }
+export interface updateCommentType {
+    content: string;
+    _id: string;
+}
 
-export type CustomComment = StateResponse<Comment> & isBoolean;
+export interface createCommentType {
+    content: string;
+    id_music: string;
+    id_reply?: string;
+}
+
+export interface ResponseUpdateDeleteCommentType {
+    data: Comment;
+    id: string;
+}

@@ -15,7 +15,8 @@ import { BiShow } from "react-icons/bi";
 const formatView = new Intl.NumberFormat("vn");
 
 export const WrapperComment = () => {
-    const { handleCloseComment, handleGetComments, _id_music, data, pagination, isOpen } = UseComment();
+    const { handleCloseComment, handleGetComments, _id_music, data, pagination, isOpen, setEditComment, editComment } =
+        UseComment();
     const { favorite, view } = UseMusic();
 
     React.useEffect(() => {
@@ -57,7 +58,18 @@ export const WrapperComment = () => {
                     <div className="flex flex-col h-full w-full justify-between">
                         <WrapperScroll className="h-full px-6 max-w-[440px] mb-52">
                             {data.length ? (
-                                data.map((item: any) => <ListComments {...item} key={item._id} />)
+                                data.map((item: any) => (
+                                    <ListComments
+                                        onSetEditComment={setEditComment}
+                                        key={item._id}
+                                        id_account_comment={item.id_account}
+                                        _id_comment={item._id}
+                                        content={item.content}
+                                        account_image={item.account.image}
+                                        comment_user_name={item.account.user_name}
+                                        createdAt={item.createdAt}
+                                    />
+                                ))
                             ) : (
                                 <Heading6
                                     title="Hiện không có bình luận nào"
@@ -65,11 +77,19 @@ export const WrapperComment = () => {
                                 />
                             )}
                         </WrapperScroll>
-                        <FormComment id_music={_id_music} />
+                        <FormComment id_music={_id_music} editComment={editComment} onSetEditComment={setEditComment} />
                     </div>
                 </div>
             </div>
-            {isOpen && <BeforeApter className="z-60 bg-[#00000061]" onClick={() => handleCloseComment()} />}
+            {isOpen && (
+                <BeforeApter
+                    className="z-60 bg-[#00000061]"
+                    onClick={() => {
+                        handleCloseComment();
+                        setEditComment(null);
+                    }}
+                />
+            )}
         </div>
     );
 };

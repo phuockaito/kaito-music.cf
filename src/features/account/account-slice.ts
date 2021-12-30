@@ -27,6 +27,9 @@ const accountSlice = createSlice({
             .addCase(loginGoogle.rejected, (state) => {
                 state.loadingGoogle = false;
                 state.error = true;
+                notification.error({
+                    message: "Đăng nhập thất bại",
+                });
             });
         // getProfile
         builder

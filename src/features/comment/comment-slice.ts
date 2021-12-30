@@ -2,9 +2,10 @@ import { createSlice, ActionReducerMapBuilder } from "@reduxjs/toolkit";
 import { message } from "antd";
 
 import { initialStateCommon } from "state";
-import { CustomComment } from "type";
 
-import { onGetComments, onAddComment, onDeleteComment } from "./patch-api";
+import { Comment } from "type";
+
+import { onGetComments, onAddComment, onDeleteComment, onUpdateComment } from "./patch-api";
 
 const commentSlice = createSlice({
     name: "comment",
@@ -25,7 +26,7 @@ const commentSlice = createSlice({
                 state.data = data;
                 state.pagination = pagination;
             })
-            .addCase(onGetComments.rejected, (state, action) => {
+            .addCase(onGetComments.rejected, (state) => {
                 state.isLoading = false;
                 state.error = true;
             });
@@ -47,13 +48,30 @@ const commentSlice = createSlice({
         // on Delete Comment
         builder.addCase(onDeleteComment.fulfilled, (state, action: any) => {
             const _id = action.payload.id;
-            const index = state.data.findIndex((item: any) => item._id === _id);
+            const index = state.data.findIndex((item: Comment) => item._id === _id);
             if (index !== -1) {
                 state.data.splice(index, 1);
                 message.success("Đã xóa bình luận");
                 state.pagination._total -= 1;
             }
         });
+        // on Update Comment
+        builder
+            .addCase(onUpdateComment.pending, (state) => {
+                state.loadingComments = true;
+            })
+            .addCase(onUpdateComment.fulfilled, (state, action: any) => {
+                state.loadingComments = false;
+                const { data, id } = action.payload;
+                const index = state.data.findIndex((item: Comment) => item._id === id);
+                if (index !== -1) {
+                    state.data[index] = data;
+                    message.success("Đã cập nhật bình luận");
+                }
+            })
+            .addCase(onUpdateComment.rejected, () => {
+                message.error("Có lỗi xảy ra");
+            });
     },
 });
 
