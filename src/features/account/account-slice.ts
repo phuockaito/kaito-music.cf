@@ -62,7 +62,7 @@ const accountSlice = createSlice({
                     message: "Đăng nhập thành công",
                 });
             })
-            .addCase(postLogin.rejected, (state, action) => {
+            .addCase(postLogin.rejected, (state) => {
                 state.loading = false;
                 notification.error({
                     message: "Tài khoản hoặc mật khẩu không đúng!",

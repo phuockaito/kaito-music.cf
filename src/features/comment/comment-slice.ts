@@ -14,6 +14,9 @@ const commentSlice = createSlice({
         onOpenComment: (state, action) => {
             state.isOpen = action.payload;
         },
+        onRemoveDataCommentOld: (state) => {
+            state.data = [];
+        },
     },
     extraReducers: (builder: ActionReducerMapBuilder<any>) => {
         builder
@@ -23,7 +26,7 @@ const commentSlice = createSlice({
             .addCase(onGetComments.fulfilled, (state, action) => {
                 const { data, pagination } = action.payload;
                 state.isLoading = false;
-                state.data = data;
+                state.data.push(...data);
                 state.pagination = pagination;
             })
             .addCase(onGetComments.rejected, (state) => {
@@ -76,5 +79,5 @@ const commentSlice = createSlice({
 });
 
 const { actions, reducer } = commentSlice;
-export const { onOpenComment } = actions;
+export const { onOpenComment, onRemoveDataCommentOld } = actions;
 export default reducer;

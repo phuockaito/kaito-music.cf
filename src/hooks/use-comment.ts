@@ -3,7 +3,15 @@ import { notification } from "antd";
 
 import { UseAccount, useAppDispatch, useAppSelector, UseMusic } from "hooks";
 
-import { onOpenComment, commentStore, onGetComments, onAddComment, onDeleteComment, onUpdateComment } from "features";
+import {
+    onOpenComment,
+    commentStore,
+    onGetComments,
+    onAddComment,
+    onDeleteComment,
+    onUpdateComment,
+    onRemoveDataCommentOld,
+} from "features";
 import { ParamsUrl, updateCommentType, createCommentType } from "type";
 
 export const UseComment = () => {
@@ -20,6 +28,7 @@ export const UseComment = () => {
     const handleOpenComment = () => dispatch(onOpenComment(!isOpen));
     const handleCloseComment = () => dispatch(onOpenComment(!isOpen));
     const handleGetComments = React.useCallback((params: ParamsUrl) => dispatch(onGetComments(params)), [dispatch]);
+    const handleRemoveDataCommentOld = React.useCallback(() => dispatch(onRemoveDataCommentOld()), [dispatch]);
 
     const handleOnAddComment = React.useCallback(
         (data: createCommentType) => {
@@ -52,6 +61,7 @@ export const UseComment = () => {
     }, [isOpen]);
 
     return {
+        handleRemoveDataCommentOld,
         handleCloseComment,
         handleOpenComment,
         handleGetComments,

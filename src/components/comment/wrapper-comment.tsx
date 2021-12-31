@@ -1,10 +1,11 @@
 import React from "react";
 import clsx from "clsx";
+import InfiniteScroll from "react-infinite-scroll-component";
 
 import { UseComment, UseMusic } from "hooks";
 
 import { Heading6, FormComment } from "elements";
-import { BeforeApter, WrapperScroll } from "layouts";
+import { BeforeApter, WrapperScroll, ListLoading } from "layouts";
 import { ListComments } from "./list-comments";
 
 import { HiOutlineArrowLeft } from "react-icons/hi";
@@ -15,14 +16,36 @@ import { BiShow } from "react-icons/bi";
 const formatView = new Intl.NumberFormat("vn");
 
 export const WrapperComment = () => {
-    const { handleCloseComment, handleGetComments, _id_music, data, pagination, isOpen, setEditComment, editComment } =
-        UseComment();
+    const {
+        handleCloseComment,
+        handleGetComments,
+        _id_music,
+        data,
+        pagination,
+        isOpen,
+        setEditComment,
+        editComment,
+        handleRemoveDataCommentOld,
+    } = UseComment();
     const { favorite, view } = UseMusic();
 
-    React.useEffect(() => {
-        if (_id_music) handleGetComments({ _id: _id_music });
-    }, [_id_music, handleGetComments]);
+    const previousPage = React.useRef<number>(1);
+    const [page, setPage] = React.useState<number>(previousPage.current);
 
+    React.useLayoutEffect(() => {
+        if (_id_music) {
+            handleRemoveDataCommentOld();
+            setPage(1);
+        }
+    }, [_id_music, handleRemoveDataCommentOld]);
+
+    React.useEffect(() => {
+        if (_id_music) handleGetComments({ _id: _id_music, _limit: 7, _page: page });
+    }, [_id_music, handleGetComments, page]);
+
+    const fetchMoreData = () => {
+        if (data.length < pagination._total) setPage(page + 1);
+    };
     return (
         <div className="z-80">
             <div
@@ -56,20 +79,30 @@ export const WrapperComment = () => {
                         </div>
                     </div>
                     <div className="flex flex-col h-full w-full justify-between">
-                        <WrapperScroll className="h-full px-6 max-w-[440px] mb-52">
+                        <WrapperScroll className="h-full px-6 max-w-[440px] mb-52" id="scrollableDiv">
                             {data.length ? (
-                                data.map((item: any) => (
-                                    <ListComments
-                                        onSetEditComment={setEditComment}
-                                        key={item._id}
-                                        id_account_comment={item.id_account}
-                                        _id_comment={item._id}
-                                        content={item.content}
-                                        account_image={item.account.image}
-                                        comment_user_name={item.account.user_name}
-                                        createdAt={item.createdAt}
-                                    />
-                                ))
+                                <InfiniteScroll
+                                    dataLength={data.length}
+                                    next={fetchMoreData}
+                                    hasMore={data.length === pagination._total ? false : true}
+                                    loader={
+                                        <ListLoading items={3} className="grid grid-template-columns-4 gap-4 my-4" />
+                                    }
+                                    scrollableTarget="scrollableDiv"
+                                >
+                                    {data.map((item: any) => (
+                                        <ListComments
+                                            onSetEditComment={setEditComment}
+                                            key={item._id}
+                                            id_account_comment={item.id_account}
+                                            _id_comment={item._id}
+                                            content={item.content}
+                                            account_image={item.account.image}
+                                            comment_user_name={item.account.user_name}
+                                            createdAt={item.createdAt}
+                                        />
+                                    ))}
+                                </InfiniteScroll>
                             ) : (
                                 <Heading6
                                     title="Hiện không có bình luận nào"

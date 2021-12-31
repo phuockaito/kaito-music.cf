@@ -1,5 +1,5 @@
 import moment from "moment";
-import { Dropdown } from "antd";
+import { Dropdown, message } from "antd";
 
 import { UseAccount, UseComment } from "hooks";
 
@@ -7,8 +7,6 @@ import { BsThreeDots } from "react-icons/bs";
 import { RiReplyFill } from "react-icons/ri";
 import { AiFillDelete, AiFillEdit } from "react-icons/ai";
 import { GoReport } from "react-icons/go";
-
-import { Comment } from "type";
 
 import { Heading6, Heading5, Heading4 } from "elements";
 import { Image } from "layouts";
@@ -59,7 +57,7 @@ export const ListComments = ({
                 </>
             )}
             {id_account_comment !== resultAccount.data._id && (
-                <div className="flex content-center space-x-4 py-2 px-4 cursor-pointer hover:bg-[rgba(33,33,42,255)]">
+                <div className="flex content-center space-x-4 py-2 px-4 hover:bg-[rgba(33,33,42,255)] cursor-not-allowed">
                     <GoReport size="1.3rem" className="text-white" />
                     <h1 className="text-white">Báo cáo</h1>
                 </div>
@@ -79,7 +77,7 @@ export const ListComments = ({
                         <Heading5 className="text-[#7f7f9c] break-all my-2" title={content} />
                         <div className="flex items-center space-x-4">
                             <Heading6 className="text-[#737678] mb-0" title={moment(createdAt).fromNow()} />
-                            <RiReplyFill className="text-white text-sm cursor-pointer" />
+                            <RiReplyFill className="text-white text-sm cursor-not-allowed" />
                         </div>
                     </div>
                     <div className="group-hover:opacity-100 opacity-0 cursor-pointer">
