@@ -2,7 +2,7 @@
 
 ## API
 
-#### `URL`: <https://api-kaito-music.herokuapp.com>
+#### `URL`: <https://api-kaito-music.herokuapp.com/api>
 
 ## Params default: `_limit=20&_page=1` `||` Null
 
