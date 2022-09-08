@@ -77,7 +77,7 @@
      - Body: { "content": ?, "id_music": ? ,id_reply: id comment reply}
      - Authorization: Bearer `token`
 
-### `Delete` (`method: DELETE`): "URL/comment/get-by-id-music"
+### `Delete` (`method: DELETE`): "URL/comment/delete-by-id"
 
      - params: { "_id": ?}
      - Authorization: Bearer `token`
