@@ -102,7 +102,7 @@
 
     - Authorization: Bearer `token`
 
-### `Delete` (`method: DELETE`): "URL/delete-by-id"
+### `Delete` (`method: DELETE`): "URL/favorite/delete-by-id"
 
     - params: { "_id": ? }
     - Authorization: Bearer `token`
