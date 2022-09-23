@@ -12,7 +12,7 @@ interface NeedLoginProps {
     login?: boolean;
     onClick?: (e: any) => void;
     isContent?: boolean;
-    Heading?: React.JSXElementConstructor<any>;
+    Heading?: any;
 }
 
 export const NeedLogin = ({
@@ -31,7 +31,7 @@ export const NeedLogin = ({
             {isContent && (
                 <Heading5
                     title="Đăng nhập để khám phá những playlist dành riêng cho chính bạn."
-                    className="text-white mb-2"
+                    className="mb-2 text-white"
                 />
             )}
             <div

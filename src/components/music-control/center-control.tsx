@@ -1,6 +1,7 @@
 import React from "react";
 import clsx from "clsx";
-import TimeSlider from "react-input-slider";
+import { Slider } from "antd";
+
 import { Duration } from "layouts";
 import { UseMusic } from "hooks";
 
@@ -49,9 +50,8 @@ export const CenterControl = ({ src_music }: CenterControlProps) => {
 
     const handleTimeSliderChange = React.useCallback(
         (position: any) => {
-            const { x } = position;
-            audioRef.current.currentTime = x;
-            setCurrentTime(x);
+            audioRef.current.currentTime = position;
+            setCurrentTime(position);
             if (!playing) {
                 handleOnPauseMusic(true);
                 audioRef.current.play();
@@ -79,7 +79,7 @@ export const CenterControl = ({ src_music }: CenterControlProps) => {
                 onTimeUpdate={onTimeUpdate}
                 hidden
             />
-            <div className="group_play_control grid grid-rows-1 w-full max-w-sm flex-1 space-y-2">
+            <div className="grid flex-1 w-full max-w-sm grid-rows-1 space-y-2 group_play_control">
                 <div className="flex items-center justify-between">
                     <ImLoop
                         className={clsx(
@@ -117,37 +117,31 @@ export const CenterControl = ({ src_music }: CenterControlProps) => {
                         onClick={() => setIsRandom(!isRandom)}
                     />
                 </div>
-                <div className="group_play_control__play flex w-full space-x-2 items-center">
+
+                <div className="flex items-center w-full space-x-2 group_play_control__play">
                     <div className="w-8">
-                        <Duration seconds={currentTime} className="rounded text-white" />
+                        <Duration seconds={currentTime} className="text-white rounded" />
                     </div>
-                    <TimeSlider
-                        axis="x"
-                        xmax={duration}
-                        x={currentTime}
+                    <Slider
+                        max={duration}
+                        min={0}
+                        value={currentTime}
                         onChange={handleTimeSliderChange}
-                        styles={{
-                            track: {
-                                backgroundColor: "#e3e3e3",
-                                height: "8px",
-                                width: "100%",
-                                borderRadius: "8px",
-                            },
-                            active: {
-                                height: "8px",
-                                width: "100%",
-                                borderRadius: "8px",
-                                background: "linear-gradient(90deg,#008aff,#00ffe7)",
-                            },
-                            thumb: {
-                                width: "13px",
-                                height: "13px",
-                                background: "linear-gradient(90deg,#008aff,#00ffe7)",
-                                borderRadius: "50%",
-                            },
+                        style={{
+                            display: "flex",
+                            width: "100%",
+                        }}
+                        trackStyle={{
+                            background: "linear-gradient(90deg,#008aff,#00ffe7)",
+                            margin: "0",
+                        }}
+                        handleStyle={{
+                            background: "linear-gradient(90deg,#008aff,#00ffe7)",
+                            border: "none",
                         }}
                     />
-                    <Duration seconds={duration} className="rounded text-white" />
+
+                    <Duration seconds={duration} className="text-white rounded" />
                 </div>
             </div>
         </>

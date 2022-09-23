@@ -3,7 +3,7 @@
     "version": "0.1.0",
     "private": true,
     "dependencies": {
-        "antd": "^4.16.11",
+        "antd": "^4.23.2",
         "axios": "^0.21.1",
         "clsx": "^1.1.1",
         "file-saver": "^2.0.5",

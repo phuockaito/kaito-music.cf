@@ -25,7 +25,7 @@ export const WrapperPlaylist = () => {
             >
                 <div className="w-full h-full py-4">
                     <HiOutlineArrowLeft
-                        className="group__playlist_icon_close hidden text-white cursor-pointer rounded-full ml-4"
+                        className="hidden ml-4 text-white rounded-full cursor-pointer group__playlist_icon_close"
                         size="1.5em"
                         onClick={() => handleClosePlaylist()}
                     />
@@ -37,21 +37,21 @@ export const WrapperPlaylist = () => {
                     >
                         <TabPane
                             style={{ height: "100%", padding: "20px" }}
-                            tab={<Heading6 title="Danh sách phát" className="text-white mb-0" />}
+                            tab={<Heading6 title="Danh sách phát" className="mb-0 text-white" />}
                             key="1"
                         >
                             <WaitingList />
                         </TabPane>
                         <TabPane
                             style={{ height: "100%", padding: "20px" }}
-                            tab={<Heading6 className="text-white mb-0" title="Nghe gần đây" />}
+                            tab={<Heading6 className="mb-0 text-white" title="Nghe gần đây" />}
                             key="2"
                         >
                             <ListenedRecently className="grid-cols-1 gap-y-2" />
                         </TabPane>
                         <TabPane
                             style={{ height: "100%", padding: "20px" }}
-                            tab={<Heading6 title="Danh sách playlist" className="text-white mb-0" />}
+                            tab={<Heading6 title="Danh sách playlist" className="mb-0 text-white" />}
                             key="3"
                         >
                             <Playlist isEditDelete className="h-full pr-5" />
