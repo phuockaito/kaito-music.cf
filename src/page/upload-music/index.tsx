@@ -32,16 +32,17 @@ const UploadMusic = ({ location }: any) => {
         history.push(url);
     };
     return loading ? (
-        <ListLoading items={24} className="grid-template-columns-3 grid gap-3" />
+        <ListLoading items={24} className="grid gap-3 grid-template-columns-3" />
     ) : (
         <>
             {data.length ? (
                 <div className="group__upload__music">
                     <div>
-                        <Heading3 title="Danh Sách Tải Lên" className="text-white mb-4" />
-                        <div className="grid-template-columns-3 grid gap-3">
+                        <Heading3 title="Danh Sách Tải Lên" className="mb-4 text-white" />
+                        <div className="grid gap-3 grid-template-columns-3">
                             {data.map((item: MusicType, index: number) => (
                                 <ItemList
+                                    account_favorite={item.account_favorite}
                                     key={item._id}
                                     timeFormat={item.time_format}
                                     item={item}
@@ -53,10 +54,10 @@ const UploadMusic = ({ location }: any) => {
                                     data={data}
                                     index={index}
                                     childrenPros={
-                                        <div className="space-x-4 flex items-center opacity-0 group-hover:opacity-100">
+                                        <div className="flex items-center space-x-4 opacity-0 group-hover:opacity-100">
                                             <Tooltip
                                                 placement="bottom"
-                                                title={<p className="text-white m-0">Chỉnh sửa</p>}
+                                                title={<p className="m-0 text-white">Chỉnh sửa</p>}
                                             >
                                                 <FiEdit
                                                     size="1.3rem"
@@ -84,7 +85,7 @@ const UploadMusic = ({ location }: any) => {
                                             >
                                                 <Tooltip
                                                     placement="bottom"
-                                                    title={<p className="text-white m-0">Xóa bài hát</p>}
+                                                    title={<p className="m-0 text-white">Xóa bài hát</p>}
                                                 >
                                                     <AiFillDelete size="1.3rem" className="text-white cursor-pointer" />
                                                 </Tooltip>
@@ -106,7 +107,7 @@ const UploadMusic = ({ location }: any) => {
                     </div>
                 </div>
             ) : (
-                <div className="absolute left-2/4	top-2/4	transform-50-center text-center">
+                <div className="absolute text-center left-2/4 top-2/4 transform-50-center">
                     <FileSearchOutlined style={{ fontSize: "1.5rem", color: "white", marginBottom: "8px" }} />
                     <Heading4 title="Danh Sách Tải Lên Trống!" className="text-white" />
                 </div>

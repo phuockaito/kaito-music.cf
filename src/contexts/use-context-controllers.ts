@@ -8,6 +8,7 @@ export const UseContextControllers = () => {
     const [openMenu, setOpenMenu] = state.isMenu;
     const [videoClip, setVideoClip] = state.videoClip;
     const [dropdownMenu, setDropdownMenu] = state.dropdownMenu;
+    const [resultAccountFavorite, setResultAccountFavorite] = state.resultAccountFavorite;
 
     return {
         openSearch,
@@ -18,5 +19,7 @@ export const UseContextControllers = () => {
         setDropdownMenu,
         videoClip,
         setVideoClip,
+        resultAccountFavorite,
+        setResultAccountFavorite,
     };
 };

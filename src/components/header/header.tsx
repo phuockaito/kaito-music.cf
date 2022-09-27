@@ -1,12 +1,10 @@
 import clsx from "clsx";
 import { Link } from "react-router-dom";
-
 import { UseAccount } from "hooks";
 import { BeforeApter, Image } from "layouts";
 import { ProfileUser, Search } from "components";
 import { UseContextControllers } from "contexts";
 
-import LogoWebsite from "assets/image/logo-website.png";
 import { RiMenuFoldLine, RiMenuUnfoldLine } from "react-icons/ri";
 import "./style.css";
 
@@ -26,12 +24,16 @@ export const Header = () => {
             >
                 <div className={clsx("group__header_logo flex items-center", openSearch && "active-hidden")}>
                     <IconDropdownMenu
-                        className="drop__down-menu text-white cursor-pointer"
+                        className="text-white cursor-pointer drop__down-menu"
                         size="1.5em"
                         onClick={() => setDropdownMenu(!dropdownMenu)}
                     />
                     <Link to="/">
-                        <Image src={LogoWebsite} imageClassName="w-36" className="ml-4" />
+                        <Image
+                            src="https://res.cloudinary.com/dycmdfgj3/image/upload/v1664261999/logo-website_vl7wul.png"
+                            imageClassName="w-36 h-full"
+                            className="ml-4"
+                        />
                     </Link>
                 </div>
                 <Search setOpen={() => setOpenSearch(true)} open={openSearch} />

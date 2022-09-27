@@ -1,5 +1,6 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { MusicType, PaginationParams } from "type";
+import { postCreateFavorite } from "features";
 interface MusicState {
     data: MusicType;
     loading: true | false;
@@ -87,6 +88,13 @@ const musicSlice = createSlice({
         addIdPlaylist: (state: MusicState, action: PayloadAction<string>) => {
             state.id_playlist = action.payload;
         },
+    },
+    extraReducers: (builder) => {
+        builder.addCase(postCreateFavorite.fulfilled, (state, action: any) => {
+            const new_favorite = action.payload.account_favorite;
+            const dataOld = state.data;
+            state.data = { ...dataOld, account_favorite: new_favorite };
+        });
     },
 });
 const { actions, reducer } = musicSlice;

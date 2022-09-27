@@ -62,6 +62,6 @@ export const bannerDefault = [
     "https://photo-zmp3.zadn.vn/banner/3/3/6/1/3361a0d09d7e557d849df9e3d0424827.jpg",
 ];
 
-// export const REACT_APP_API_URL = "http://localhost:3001";
+// export const REACT_APP_API_URL = "http://localhost:3001/api";
 export const REACT_APP_API_URL = "https://api-v2-kaito-music.herokuapp.com/api";
 export const CLINT_ID_GOOGLE = "147148304416-51hpf6le8b4q73jp3qpg9hvopvp32hbb.apps.googleusercontent.com";

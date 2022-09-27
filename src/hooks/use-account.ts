@@ -16,7 +16,7 @@ export const UseAccount = () => {
     const dispatch = useAppDispatch();
 
     const resultAccount = useAppSelector(accountStore);
-    const { accessToken, loading, loadingGoogle } = resultAccount;
+    const { accessToken, loading, loadingGoogle, data } = resultAccount;
 
     // dispatch api
     const handlePostLogin = (data: LoginType) => dispatch(postLogin(data));
@@ -44,5 +44,6 @@ export const UseAccount = () => {
         accessToken,
         loading,
         loadingGoogle,
+        dataAccount: data,
     };
 };

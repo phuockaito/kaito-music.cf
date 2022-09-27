@@ -13,9 +13,10 @@ interface HoverPlayProps {
     nameMusic: string;
     srcMusic: string;
     link_mv?: string;
+    account_favorite: any;
 }
 const IconClassName = "transition duration-300 ease-in-out text-white cursor-pointer transform hover:scale-125";
-export const HoverPlay = ({ _id, data, index, nameMusic, srcMusic, link_mv }: HoverPlayProps) => {
+export const HoverPlay = ({ _id, data, index, nameMusic, srcMusic, link_mv, account_favorite }: HoverPlayProps) => {
     const { _id_music, playing } = UseMusic();
     return (
         <div
@@ -25,7 +26,13 @@ export const HoverPlay = ({ _id, data, index, nameMusic, srcMusic, link_mv }: Ho
             )}
         >
             <div className="flex justify-between w-full px-4">
-                <FavoriteIcon className={IconClassName} size="2.2em" active _id_music={_id} />
+                <FavoriteIcon
+                    className={IconClassName}
+                    size="2.2em"
+                    active
+                    _id_music={_id}
+                    account_favorite={account_favorite}
+                />
                 <PlayPause _id={_id} data={data} index={index} />
                 <OtherDot
                     link_mv={link_mv}

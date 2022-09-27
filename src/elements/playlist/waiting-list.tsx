@@ -5,44 +5,61 @@ import { MusicType, ArrayMusicType } from "type";
 
 import { WrapperScroll, ItemList } from "layouts";
 import { Heading5 } from "elements";
+import { UseContextControllers } from "contexts";
 
 type WaitingListProps = ArrayMusicType & MusicType;
 
 export const WaitingList = () => {
+    const { resultAccountFavorite } = UseContextControllers();
     const { dataByIdPlayList } = UsePlaylist();
     const { dataRandom } = UseMusic();
     const dataByIdPlayListLength = dataByIdPlayList.length;
     const dataRandomLength = dataRandom.length;
 
-    const data = React.useMemo(
-        () => (dataByIdPlayListLength ? dataByIdPlayList : dataRandom),
-        [dataByIdPlayList, dataByIdPlayListLength, dataRandom, dataRandomLength]
-    );
+    const [listData, setListData] = React.useState<WaitingListProps[]>([]);
+
+    React.useEffect(() => {
+        setListData(dataByIdPlayListLength ? dataByIdPlayList.map((i: any) => ({ ...i.music })) : dataRandom);
+    }, [dataByIdPlayListLength, dataRandomLength]);
+
+    const { message, id_music, account_favorite } = resultAccountFavorite;
+
+    React.useEffect(() => {
+        if (id_music) {
+            const index = listData.findIndex((item) => item._id === id_music);
+            if (index !== -1) {
+                const newListData = [...listData];
+                newListData[index] = account_favorite;
+                setListData(newListData);
+            }
+        }
+    }, [message]);
 
     return (
-        <WrapperScroll className="grid-cols-1 grid h-full gap-y-2">
-            {data.length ? (
-                data.map((item: WaitingListProps, index: number) => (
+        <WrapperScroll className="grid h-full grid-cols-1 gap-y-2">
+            {listData.length ? (
+                listData.map((item: WaitingListProps, index: number) => (
                     <ItemList
+                        account_favorite={item.account_favorite}
                         key={index}
-                        link_mv={item?.link_mv || item.music?.link_mv}
+                        link_mv={item?.link_mv}
                         item={item}
                         className="h-[76px]"
-                        nameMusic={item.name_music || item.music.name_music}
-                        image={item.image_music || item.music.image_music}
-                        nameSinger={item.name_singer || item.music.name_singer}
-                        _id={dataByIdPlayList.length ? item.music._id : item._id}
-                        src_music={item.src_music || item.music.src_music}
+                        nameMusic={item.name_music}
+                        image={item.image_music}
+                        nameSinger={item.name_singer}
+                        _id={item._id}
+                        src_music={item.src_music}
                         index={index}
-                        timeFormat={item.time_format || item.music.time_format}
-                        data={data}
-                        activeClass="bg-[#ff3465]"
+                        timeFormat={item.time_format}
+                        data={listData}
+                        activeClass="bg-[#0b0003]"
                         otherDot
                         isDeleteMusic={dataByIdPlayList.length ? true : false}
                     />
                 ))
             ) : (
-                <Heading5 title="Không có bài hát nào" className="text-white text-center" />
+                <Heading5 title="Không có bài hát nào" className="text-center text-white" />
             )}
         </WrapperScroll>
     );

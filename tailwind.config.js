@@ -1,7 +1,6 @@
+/** @type {import('tailwindcss').Config} */
 module.exports = {
-    mode: "jit",
-    purge: ["./public/**/*.html", "./src/**/*.{js,jsx,ts,tsx}"],
-    darkMode: false,
+    content: ["./src/**/*.{js,jsx,ts,tsx}"],
     theme: {
         zIndex: {
             0: 0,
@@ -34,4 +33,5 @@ module.exports = {
             "2xl": "1536px",
         },
     },
+    plugins: [],
 };

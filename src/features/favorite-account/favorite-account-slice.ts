@@ -16,10 +16,13 @@ const favoriteAccountSlice = createSlice({
             .addCase(postCreateFavorite.pending, (state) => {
                 state.loading = true;
             })
-            .addCase(postCreateFavorite.fulfilled, (state) => {
+            .addCase(postCreateFavorite.fulfilled, (state, action: any) => {
                 state.loading = false;
                 notification.success({
-                    message: "Đã thêm vào danh sách yêu thích",
+                    message:
+                        action.payload.message !== "Delete favorite success"
+                            ? "Đã thêm vào danh sách yêu thích"
+                            : "Đã xóa khỏi danh sách yêu thích",
                     placement: "topLeft",
                 });
             })

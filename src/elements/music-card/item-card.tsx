@@ -27,6 +27,7 @@ export const ItemCard = (props: CustomProps) => {
                 className="group-image__music"
             >
                 <HoverPlay
+                    account_favorite={props.account_favorite}
                     link_mv={props.link_mv}
                     _id={props._id}
                     data={props.data}

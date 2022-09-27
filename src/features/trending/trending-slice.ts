@@ -4,6 +4,7 @@ import { getTrending } from "./patch-api";
 
 import { CustomStateResponse } from "type";
 import { initialStateCommon } from "state";
+import { postCreateFavorite } from "features";
 
 const TrendingSlice = createSlice({
     name: "Trending",
@@ -24,6 +25,15 @@ const TrendingSlice = createSlice({
                 state.error = true;
                 state.loading = false;
             });
+        builder.addCase(postCreateFavorite.fulfilled, (state, action: any) => {
+            const new_favorite = action.payload.account_favorite;
+            const _id_music = action.payload.id_music;
+            const dataOld = state.data;
+            const index = dataOld.findIndex((item: any) => item._id === _id_music);
+            if (index !== -1) {
+                dataOld[index].account_favorite = new_favorite;
+            }
+        });
     },
 });
 const { reducer } = TrendingSlice;

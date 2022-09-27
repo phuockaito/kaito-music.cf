@@ -15,11 +15,12 @@ export const MusicControl = () => {
     const { resultMusic, handleOnDropdownMusic, playing, dropdownMusic, _id_music } = UseMusic();
     const { data } = resultMusic;
     const tempData = React.useMemo(() => data, [data]);
-    const { src_music, image_music, name_singer, link_mv, name_music } = tempData;
+    const { src_music, image_music, name_singer, link_mv, name_music, account_favorite } = tempData;
+
     return (
         <>
             {dropdownMusic && (
-                <div className="group_music_control__btn_play fixed bottom-0 inline-block p-4">
+                <div className="fixed bottom-0 inline-block p-4 group_music_control__btn_play">
                     <RiPlayCircleLine
                         className="transition-ease-in-out text-white cursor-pointer transform hover:scale-125 bg-[#ff3465] rounded-sm"
                         size="2.5em"
@@ -37,8 +38,8 @@ export const MusicControl = () => {
                     )}
                 >
                     <TopControl SrcMusic={src_music} />
-                    <div className="group_music_control__container relative h-20 flex justify-center">
-                        <div className="group_music_control__play_music flex justify-between items-center	w-full space-x-4">
+                    <div className="relative flex justify-center h-20 group_music_control__container">
+                        <div className="flex items-center justify-between w-full space-x-4 group_music_control__play_music">
                             <LeftControl
                                 playing={playing}
                                 imageMusic={image_music}
@@ -51,6 +52,7 @@ export const MusicControl = () => {
                                 srcMusic={src_music}
                                 _id_music={_id_music}
                                 link_mv={link_mv}
+                                account_favorite={account_favorite}
                             />
                         </div>
                     </div>

@@ -1,9 +1,7 @@
 import React from "react";
-import ReactDOM from "react-dom";
+import ReactDOM from "react-dom/client";
 
-import "./tailwind.css";
-import "antd/dist/antd.css";
-import "./index.css";
+import "./styles/index.css";
 
 import moment from "moment";
 import "moment/locale/vi";
@@ -15,15 +13,15 @@ import { Provider } from "react-redux";
 import { UseContextProvider } from "contexts/use-context-provider";
 moment.locale("vi");
 
-ReactDOM.render(
+const root = ReactDOM.createRoot(document.getElementById("root") as HTMLElement);
+root.render(
     <React.StrictMode>
         <Provider store={store}>
-            <UseContextProvider>
-                <Router>
+            <Router>
+                <UseContextProvider>
                     <App />
-                </Router>
-            </UseContextProvider>
+                </UseContextProvider>
+            </Router>
         </Provider>
-    </React.StrictMode>,
-    document.getElementById("root")
+    </React.StrictMode>
 );
