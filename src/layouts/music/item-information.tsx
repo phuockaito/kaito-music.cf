@@ -13,14 +13,17 @@ interface ItemInformationProps {
 }
 
 export const ItemInformation = ({
-    className = "py-3 px-2 w-full",
+    className = "w-full px-2 py-3",
     nameMusic,
     nameMusicClassName,
     view,
     favorite,
     nameSinger,
 }: ItemInformationProps) => {
-    const formatView = new Intl.NumberFormat("vn");
+    const formatView = new Intl.NumberFormat("en-US", {
+        notation: "compact",
+        compactDisplay: "short",
+    });
     return (
         <div className={className}>
             <div className="mb-2">
@@ -31,13 +34,13 @@ export const ItemInformation = ({
                 {view && (
                     <div className="flex text-[#a5a6c4] items-center rounded-b-sm">
                         <BiShow className="w-4 h-4 mr-2" />
-                        <p className="font-semibold	m-0 truncate text-sm">{view && formatView.format(view)} lượt xem</p>
+                        <p className="m-0 text-sm font-semibold truncate">{view && formatView.format(view)} lượt xem</p>
                     </div>
                 )}
                 {favorite && (
                     <div className="flex text-[#a5a6c4] items-center rounded-b-sm">
                         <MdFavoriteBorder className="w-4 h-4 mr-2" />
-                        <p className="font-semibold	m-0 truncate text-sm">
+                        <p className="m-0 text-sm font-semibold truncate">
                             {favorite && formatView.format(favorite)} lượt thích
                         </p>
                     </div>

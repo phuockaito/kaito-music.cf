@@ -9,5 +9,5 @@ export const PlaylistsAlbums = () => {
     React.useEffect(() => {
         getPlaylistAPI({});
     }, [getPlaylistAPI]);
-    return <Playlist className="max-h-64 mt-4" />;
+    return <Playlist className="mt-4 max-h-64" isEditDelete />;
 };
