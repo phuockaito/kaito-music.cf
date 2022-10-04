@@ -2,6 +2,7 @@ import React from "react";
 import { Tooltip, Pagination, Popconfirm } from "antd";
 import { useHistory } from "react-router-dom";
 import queryString from "query-string";
+import styled from "styled-components";
 
 import { UseUploadMusic, UseModal } from "hooks";
 
@@ -97,7 +98,7 @@ const UploadMusic = ({ location }: any) => {
                         </div>
                     </div>
                     <div className="group_pagination">
-                        <Pagination
+                        <StylePagination
                             onChange={onChangePage}
                             total={pagination._total}
                             defaultPageSize={18}
@@ -117,3 +118,9 @@ const UploadMusic = ({ location }: any) => {
 };
 
 export default UploadMusic;
+
+const StylePagination = styled(Pagination)`
+    .ant-pagination-options {
+        display: none;
+    }
+`;

@@ -1,6 +1,5 @@
 import moment from "moment";
-import { Dropdown, message } from "antd";
-
+import { Dropdown } from "antd";
 import { UseAccount, UseComment } from "hooks";
 
 import { BsThreeDots } from "react-icons/bs";
@@ -8,7 +7,7 @@ import { RiReplyFill } from "react-icons/ri";
 import { AiFillDelete, AiFillEdit } from "react-icons/ai";
 import { GoReport } from "react-icons/go";
 
-import { Heading6, Heading5, Heading4 } from "elements";
+import { Heading6, Heading4 } from "elements";
 import { Image } from "layouts";
 
 interface ListCommentsProps {
@@ -32,6 +31,7 @@ export const ListComments = ({
 }: ListCommentsProps) => {
     const { resultAccount, accessToken } = UseAccount();
     const { handleDeleteComment } = UseComment();
+
     const menu = (
         <div className="bg-[#2f2f3a] py-4 rounded-sm text-left min-w-[15em]">
             {accessToken && (
@@ -66,23 +66,26 @@ export const ListComments = ({
     );
 
     return (
-        <div className="flex space-x-4 mb-4 group">
+        <div className="flex mb-4 space-x-4 group">
             <div>
                 <Image src={account_image} className="w-10 h-10" />
             </div>
             <div className="flex-1">
-                <Heading4 title={comment_user_name} className="text-white font-semibold" />
-                <div className="flex space-x-2 justify-between">
+                <Heading4 title={comment_user_name} className="font-semibold text-white" />
+                <div className="flex justify-between space-x-2">
                     <div>
-                        <Heading5 className="text-[#7f7f9c] break-all my-2" title={content} />
+                        <div
+                            className="text-[#7f7f9c] break-all my-2 text-base"
+                            dangerouslySetInnerHTML={{ __html: content.replace(/(\r\n|\n|\r)/gm, "<br />") }}
+                        />
                         <div className="flex items-center space-x-4">
                             <Heading6 className="text-[#737678] mb-0" title={moment(createdAt).fromNow()} />
-                            <RiReplyFill className="text-white text-sm cursor-not-allowed" />
+                            <RiReplyFill className="text-sm text-white cursor-not-allowed" />
                         </div>
                     </div>
-                    <div className="group-hover:opacity-100 opacity-0 cursor-pointer">
+                    <div className="opacity-0 cursor-pointer group-hover:opacity-100">
                         <Dropdown overlay={menu} placement="bottomRight">
-                            <BsThreeDots className="text-white text-xl" />
+                            <BsThreeDots className="text-xl text-white" />
                         </Dropdown>
                     </div>
                 </div>

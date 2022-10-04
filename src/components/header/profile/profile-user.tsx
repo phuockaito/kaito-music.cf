@@ -22,7 +22,7 @@ export const ProfileUser = ({ className }: ProfileUserProps) => {
     return (
         <div className={clsx("group__profile grid grid-cols-1 gap-5 place-items-end", className)}>
             {accessToken ? (
-                <div className="group__profile_icon grid grid-cols-3 gap-5">
+                <div className="grid grid-cols-3 gap-5 group__profile_icon">
                     <UploadMusic />
                     <Notification />
                     <Avatar

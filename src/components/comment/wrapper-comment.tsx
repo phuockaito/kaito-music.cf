@@ -13,8 +13,10 @@ import { AiOutlineComment } from "react-icons/ai";
 import { MdFavorite } from "react-icons/md";
 import { BiShow } from "react-icons/bi";
 
-const formatView = new Intl.NumberFormat("vn");
-
+const formatView = new Intl.NumberFormat("en-US", {
+    notation: "compact",
+    compactDisplay: "short",
+});
 export const WrapperComment = () => {
     const {
         handleCloseComment,
@@ -55,30 +57,30 @@ export const WrapperComment = () => {
                 )}
             >
                 <div className="w-full h-full">
-                    <div className="border-b-2 border-[#2f2f3a] m-4 min-h-[70px]">
-                        <div className="flex justify-between">
+                    <div className="border-b-2 border-[#2f2f3a] p-3 min-h-[70px]">
+                        <div className="flex items-center justify-between">
                             <HiOutlineArrowLeft
-                                className="text-white cursor-pointer rounded-full"
-                                size="1.5em"
+                                className="text-white rounded-full cursor-pointer"
+                                size="1.2em"
                                 onClick={() => handleCloseComment()}
                             />
                             <div className="flex flex-col items-center">
-                                <MdFavorite className="text-white text-xl mb-2" />
-                                <p className="text-white mb-0">{favorite && formatView.format(favorite)}</p>
+                                <MdFavorite className="text-xl text-white" />
+                                <p className="mb-0 text-white">{favorite && formatView.format(favorite)}</p>
                             </div>
                             <div className="flex flex-col items-center">
-                                <BiShow className="text-white text-xl mb-2" />
-                                <p className="text-white mb-0">{view && formatView.format(view)}</p>
+                                <BiShow className="text-xl text-white" />
+                                <p className="mb-0 text-white">{view && formatView.format(view)}</p>
                             </div>
                             <div className="flex flex-col items-center">
-                                <AiOutlineComment className="text-white text-xl mb-2" />
-                                <p className="text-white mb-0">
+                                <AiOutlineComment className="text-xl text-white" />
+                                <p className="mb-0 text-white">
                                     {pagination._total && formatView.format(pagination._total)}
                                 </p>
                             </div>
                         </div>
                     </div>
-                    <div className="flex flex-col h-full w-full justify-between">
+                    <div className="flex flex-col justify-between w-full h-full">
                         <WrapperScroll className="h-full px-6 max-w-[440px] mb-52" id="scrollableDiv">
                             {data.length ? (
                                 <InfiniteScroll
@@ -86,7 +88,7 @@ export const WrapperComment = () => {
                                     next={fetchMoreData}
                                     hasMore={data.length === pagination._total ? false : true}
                                     loader={
-                                        <ListLoading items={3} className="grid grid-template-columns-4 gap-4 my-4" />
+                                        <ListLoading items={3} className="grid gap-4 my-4 grid-template-columns-4" />
                                     }
                                     scrollableTarget="scrollableDiv"
                                 >
@@ -106,7 +108,7 @@ export const WrapperComment = () => {
                             ) : (
                                 <Heading6
                                     title="Hiện không có bình luận nào"
-                                    className="text-white left-1/3 absolute top-1/2"
+                                    className="absolute text-white left-1/3 top-1/2"
                                 />
                             )}
                         </WrapperScroll>

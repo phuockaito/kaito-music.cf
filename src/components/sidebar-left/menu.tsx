@@ -52,7 +52,12 @@ export const Menu = () => {
                     !dropdownMenu && "dropdown-menu_active"
                 )}
             >
-                <WrapperScroll className="absolute overflow-y-auto w-full h-full px-6">
+                <WrapperScroll
+                    className="absolute w-full h-full px-6 overflow-y-auto"
+                    style={{
+                        maxHeight: "calc(100vh - 120px)",
+                    }}
+                >
                     <div className="grid mb-4">
                         {homeMenu.map((item, index) => (
                             <NeedLogin
@@ -61,7 +66,7 @@ export const Menu = () => {
                                 icon={<item.Icon size="1.8em" className={activeMenu(item.href)} />}
                                 title={item.title}
                                 titleClassName={clsx("cursor-pointer text-lg mb-0", activeMenu(item.href))}
-                                className="group py-2"
+                                className="py-2 group"
                                 Heading={Heading5}
                                 onClick={() => handlePushPage(item.href)}
                             />
@@ -76,7 +81,7 @@ export const Menu = () => {
                                 icon={<item.Icon size="1.8em" className={activeMenu(item.href)} />}
                                 title={item.title}
                                 titleClassName={clsx("cursor-pointer text-lg", activeMenu(item.href))}
-                                className="group py-2"
+                                className="py-2 group"
                                 Heading={Heading5}
                                 onClick={() => handlePushPage(item.href)}
                             />

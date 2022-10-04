@@ -36,21 +36,21 @@ export const WrapperPlaylist = () => {
                         moreIcon={<MdMoreHoriz className="text-white " size="1.5em" />}
                     >
                         <TabPane
-                            style={{ height: "100%", padding: "20px" }}
+                            style={{ height: "100%", padding: "10px" }}
                             tab={<Heading6 title="Danh sách phát" className="mb-0 text-white" />}
                             key="1"
                         >
                             <WaitingList />
                         </TabPane>
                         <TabPane
-                            style={{ height: "100%", padding: "20px" }}
+                            style={{ height: "100%", padding: "10px" }}
                             tab={<Heading6 className="mb-0 text-white" title="Nghe gần đây" />}
                             key="2"
                         >
                             <ListenedRecently className="grid-cols-1 gap-y-2" />
                         </TabPane>
                         <TabPane
-                            style={{ height: "100%", padding: "20px" }}
+                            style={{ height: "100%", padding: "10px" }}
                             tab={<Heading6 title="Danh sách playlist" className="mb-0 text-white" />}
                             key="3"
                         >

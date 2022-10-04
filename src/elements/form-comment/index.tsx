@@ -1,11 +1,11 @@
 import React from "react";
 import clsx from "clsx";
 import { Input, Form } from "antd";
+import { FiSend } from "react-icons/fi";
+import styled from "styled-components";
 
 import { updateCommentType } from "type";
-
 import { UseComment } from "hooks";
-
 import "./style.css";
 
 interface FormCommentProps {
@@ -45,23 +45,37 @@ export const FormComment = ({ id_music, editComment, onSetEditComment }: FormCom
     return (
         <div className="form__comment">
             <Form onFinish={onFinishSubmit} form={form}>
-                <div className="flex w-full items-end">
+                <div className="flex items-end w-full gap-3">
                     <Form.Item name="content" rules={[{ required: true, message: "" }]}>
-                        <TextArea
+                        <StyleDTextArea
+                            bordered={false}
                             placeholder="Thêm bình luận..."
                             maxLength={300}
                             showCount={true}
+                            autoSize={{
+                                minRows: 1,
+                                maxRows: 2,
+                            }}
                             onChange={(e) => setLengthComment(e.target.value.trim())}
                         />
                     </Form.Item>
                     <button
                         disabled={lengthComment ? false : true}
-                        className={clsx("ml-2", lengthComment ? "text-[#ff3465]" : "text-[#717588]")}
+                        className={clsx(
+                            "w-[35px] h-[35px] flex items-center justify-center rounded-[0.35rem] cursor-pointer",
+                            lengthComment ? "bg-[#ffff]" : "bg-[#717588]"
+                        )}
                     >
-                        {editComment ? "Lưu lại" : "Đăng"}
+                        <FiSend />
                     </button>
                 </div>
             </Form>
         </div>
     );
 };
+
+const StyleDTextArea = styled(TextArea)`
+    textarea {
+        height: 35px !important;
+    }
+`;
