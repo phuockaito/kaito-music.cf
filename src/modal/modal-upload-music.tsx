@@ -54,7 +54,7 @@ export const ModalUploadMusic = () => {
                     },
                     {
                         min: 1,
-                        max: 40,
+                        max: 60,
                         message: "Vui lòng nhập đúng tên bài hát!",
                     },
                 ]}
@@ -77,7 +77,7 @@ export const ModalUploadMusic = () => {
                     },
                     {
                         min: 1,
-                        max: 30,
+                        max: 60,
                         message: "Vui lòng nhập đúng tên nghệ sĩ!",
                     },
                 ]}
