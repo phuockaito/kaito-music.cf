@@ -16,6 +16,7 @@ import { BiShow } from "react-icons/bi";
 const formatView = new Intl.NumberFormat("en-US", {
     notation: "compact",
     compactDisplay: "short",
+    maximumFractionDigits: 1,
 });
 export const WrapperComment = () => {
     const {

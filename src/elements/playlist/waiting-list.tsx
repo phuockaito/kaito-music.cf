@@ -36,7 +36,7 @@ export const WaitingList = () => {
     }, [message]);
 
     return (
-        <WrapperScroll className="grid h-full grid-cols-1 gap-y-2">
+        <WrapperScroll className="grid h-full grid-cols-1">
             {listData.length ? (
                 listData.map((item: WaitingListProps, index: number) => (
                     <ItemList
@@ -44,7 +44,6 @@ export const WaitingList = () => {
                         key={index}
                         link_mv={item?.link_mv}
                         item={item}
-                        className="h-[76px]"
                         nameMusic={item.name_music}
                         image={item.image_music}
                         nameSinger={item.name_singer}

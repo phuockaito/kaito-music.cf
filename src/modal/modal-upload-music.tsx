@@ -126,7 +126,7 @@ export const ModalUploadMusic = () => {
             >
                 <Input
                     prefix={<FiYoutube className="icon-input" />}
-                    placeholder="https://youtu.be/FN7ALfpGxiI"
+                    placeholder="Chia sẻ link Youtube: https://youtu.be/FN7ALfpGxiI"
                     className="h-[35px]"
                 />
             </Form.Item>

@@ -21,5 +21,6 @@ export const UseContextControllers = () => {
         setVideoClip,
         resultAccountFavorite,
         setResultAccountFavorite,
+        musicPlay: state.musicPlay,
     };
 };

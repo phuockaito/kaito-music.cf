@@ -10,14 +10,16 @@ export const NewMusic = () => {
     ) : (
         <div className="my-4">
             <Heading3 title="Mới Phát Hành" className="text-white" />
-            <div className="grid grid-template-columns gap-x-2 gap-y-1">
+            <div className="grid grid-cols-1 md:grid-cols-2 2xl:grid-cols-4 xl:grid-cols-3 gap-x-2 gap-y-1">
                 {data.map((item: MusicType, index: number) => (
                     <ItemList
                         account_favorite={item.account_favorite}
                         timeFormat={item.time_format}
                         item={item}
+                        favorite={item.favorite}
                         key={item._id}
                         nameMusic={item.name_music}
+                        view={item.view}
                         image={item.image_music}
                         nameSinger={item.name_singer}
                         _id={item._id}

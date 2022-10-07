@@ -22,3 +22,8 @@ export const editUploadMusic = createAsyncThunk("music/edit", async (data: Uploa
     const response = await uploadMusicApi.editUploadMusic(data);
     return response;
 });
+
+export const searchMusicUploads = createAsyncThunk("music/get-upload/search", async (params: ParamsUrl) => {
+    const response = await uploadMusicApi.searchMusicUploads(params);
+    return response;
+});

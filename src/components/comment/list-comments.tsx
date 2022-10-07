@@ -33,7 +33,7 @@ export const ListComments = ({
     const { handleDeleteComment } = UseComment();
 
     const menu = (
-        <div className="bg-[#2f2f3a] py-4 rounded-sm text-left min-w-[15em]">
+        <div className="bg-[#2f2f3a] py-4 rounded-[0.35rem] text-left min-w-[15em]">
             {accessToken && (
                 <>
                     {id_account_comment === resultAccount.data._id && (

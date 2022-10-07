@@ -39,7 +39,7 @@ export const Menu = () => {
         <div>
             <div
                 className={clsx(
-                    "toggle-menu transition-ease-in-out hidden fixed z-20 right-4 w-8 h-8 bg-[#ff3465] p-1 cursor-pointer rounded-sm top-24"
+                    "toggle-menu transition-ease-in-out hidden fixed z-20 right-4 w-8 h-8 bg-[#ff3465] p-1 cursor-pointer rounded-[0.35rem] top-24"
                 )}
                 onClick={() => setOpen(!open)}
             >

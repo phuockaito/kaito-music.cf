@@ -19,6 +19,10 @@ const uploadMusicApi = {
         const url = "music/delete-by-id";
         return axiosClient.delete(url, { params });
     },
+    searchMusicUploads(params: ParamsUrl): Promise<MusicType> {
+        const url = "music/get-upload/search";
+        return axiosClient.get(url, { params });
+    },
 };
 
 export default uploadMusicApi;

@@ -41,20 +41,20 @@ export const OtherDot = ({
     const { setVideoClip } = UseContextControllers();
     const { toggle } = UseModal();
     const content = (
-        <div className="bg-[#2f2f3a] py-4 rounded-sm text-left" style={{ minWidth: "15em" }}>
+        <div className="bg-[#2f2f3a] py-4 rounded-[0.35rem] text-left" style={{ minWidth: "15em" }}>
             <div
                 onClick={() => saveAs(srcMusic, `${nameMusic}.mp3`)}
                 className="flex content-center space-x-4 py-2 px-4 cursor-pointer hover:bg-[rgba(33,33,42,255)]"
             >
                 <BsDownload size="1.3rem" className="text-white" />
-                <Heading6 title="Tải xuống" className="text-white m-0 p-0" />
+                <Heading6 title="Tải xuống" className="p-0 m-0 text-white" />
             </div>
             <div
                 className="flex content-center space-x-4 py-2 px-4 cursor-pointer hover:bg-[rgba(33,33,42,255)]"
                 onClick={() => setVideoClip({ linkMv: link_mv, isOpen: true })}
             >
                 <MdVideoLibrary size="1.3rem" className="text-white" />
-                <Heading6 title="Xem MV" className="text-white m-0 p-0" />
+                <Heading6 title="Xem MV" className="p-0 m-0 text-white" />
             </div>
             {accessToken ? (
                 <>
@@ -74,7 +74,7 @@ export const OtherDot = ({
                             onClick={() => handleDeleteMusicPlaylist({ _id: id_playlist_old, _id_music: _id })}
                         >
                             <AiFillDelete size="1.3rem" className="text-white" />
-                            <Heading6 title="Xóa khỏi playlist" className="text-white m-0 p-0" />
+                            <Heading6 title="Xóa khỏi playlist" className="p-0 m-0 text-white" />
                         </div>
                     )}
                 </>

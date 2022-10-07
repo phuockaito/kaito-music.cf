@@ -38,7 +38,7 @@ export const ListenedRecently = ({ className, children }: ListenedRecentlyProps)
     }, [message]);
 
     return !accessToken ? (
-        <div className="p-4 rounded-lg bg-[#01aaed] text-center mt-4">
+        <div className="p-4 rounded-[0.35rem] bg-[#01aaed] text-center mt-4">
             <NeedLogin
                 isContent
                 login

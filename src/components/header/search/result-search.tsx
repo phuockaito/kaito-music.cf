@@ -21,34 +21,41 @@ export const ResultSearch = ({ data, className }: ResultSearchProps) => {
         handleOnIndexMusic(tempData);
     };
 
-    return data.length > 0 ? (
+    return (
         <div className={clsx("group-search__list absolute z-10 rounded", className)}>
             <WrapperScroll className={clsx(openSearch ? "active max-h-96" : "not-active")}>
                 <ul className={clsx(openSearch ? "active" : "not-active")}>
-                    {data.map((item: MusicType, index: number) => (
-                        <li
-                            key={index}
-                            onClick={() => {
-                                close(index, item._id);
-                            }}
-                            className="truncate group text-left"
-                        >
-                            <Link to="/" className="text-[#dfe6eb] flex group-hover:text-[#ff3465]">
-                                <Image
-                                    src={item.image_music}
-                                    alt={item.name_music}
-                                    imageClassName="w-8 h-8"
-                                    className="mr-2"
-                                />
-                                <Heading6
-                                    title={item.name_music}
-                                    className="group-hover:text-[#ff3465] text-white truncate flex-1"
-                                />
-                            </Link>
-                        </li>
-                    ))}
+                    {data.length ? (
+                        data.map((item: MusicType, index: number) => (
+                            <li
+                                key={index}
+                                onClick={() => {
+                                    close(index, item._id);
+                                }}
+                                className="text-left truncate group"
+                            >
+                                <Link to="/" className="text-[#dfe6eb] flex group-hover:text-[#ff3465]">
+                                    <Image
+                                        src={item.image_music}
+                                        alt={item.name_music}
+                                        imageClassName="w-8 h-8"
+                                        className="mr-2"
+                                    />
+                                    <Heading6
+                                        title={item.name_music}
+                                        className="group-hover:text-[#ff3465] text-white truncate flex-1"
+                                    />
+                                </Link>
+                            </li>
+                        ))
+                    ) : (
+                        <Heading6
+                            title="Rất tiếc không tìm thấy kết quả nào"
+                            className="group-hover:text-[#ff3465] text-white truncate flex-1"
+                        />
+                    )}
                 </ul>
             </WrapperScroll>
         </div>
-    ) : null;
+    );
 };

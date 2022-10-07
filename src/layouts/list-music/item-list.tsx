@@ -25,6 +25,8 @@ interface ItemListProps {
     link_mv?: string;
     account_favorite: any;
     isDeleteMusic?: boolean;
+    favorite?: number;
+    view?: number;
 }
 
 export const ItemList = ({
@@ -45,6 +47,8 @@ export const ItemList = ({
     className,
     isDeleteMusic,
     account_favorite,
+    favorite,
+    view,
 }: ItemListProps) => {
     const { handleOnIndexMusic, _id_music, playing, handlePausePlayClick, handleOnChooseMusic, handleOnPlaylist } =
         UseMusic();
@@ -76,8 +80,8 @@ export const ItemList = ({
                 className
             )}
         >
-            <div className="flex items-center space-x-4">
-                <div className="relative flex w-12 h-12 cursor-pointer">
+            <div className="flex items-center">
+                <div className="relative flex w-12 h-12 mr-3 cursor-pointer">
                     <Image
                         src={image}
                         imageClassName={clsx("h-full w-full", active ? "opacity-40" : "group-hover:opacity-40")}
@@ -95,9 +99,16 @@ export const ItemList = ({
                         )}
                     </Image>
                 </div>
-                <ItemInformation nameMusic={nameMusic} nameSinger={nameSinger} className="flex-1 truncate" />
+                <ItemInformation
+                    nameMusic={nameMusic}
+                    nameSinger={nameSinger}
+                    className="flex-1 truncate"
+                    favorite={favorite}
+                    view={view}
+                    classNameView="flex gap-2 items-center"
+                />
                 {childrenPros}
-                <div className="flex items-center space-x-4">
+                <div className="flex items-center gap-2">
                     {otherDot && (
                         <>
                             <FavoriteIcon active={active} _id_music={_id} account_favorite={account_favorite} />
@@ -111,7 +122,7 @@ export const ItemList = ({
                             />
                         </>
                     )}
-                    <p className="px-2 py-1 text-xs text-white rounded">{timeFormat}</p>
+                    <p className="mb-0 ml-2 text-xs text-white rounded">{timeFormat}</p>
                 </div>
             </div>
         </div>
