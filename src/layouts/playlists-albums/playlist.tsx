@@ -30,7 +30,7 @@ export const Playlist = ({ _id_music, className = "h-full", isEditDelete }: Play
     };
 
     return !accessToken ? (
-        <div className="p-4 rounded-lg bg-[#01aaed] text-center mt-4">
+        <div className="p-4 rounded-[0.35rem] bg-[#01aaed] text-center mt-4">
             <NeedLogin
                 isContent
                 login
@@ -52,11 +52,11 @@ export const Playlist = ({ _id_music, className = "h-full", isEditDelete }: Play
                     icon={<MdQueueMusic className="group-hover:text-[#ff3465] text-[#a5a6c4]" size="1.8em" />}
                     onClick={() => onClick(item._id, item.name_list)}
                     title={item.name_list}
-                    className="group py-2"
+                    className="py-2 group"
                 />
             ))}
         </WrapperScroll>
     ) : (
-        <Heading5 title="Danh sách trống" className="text-[#a5a6c4] mt-4" />
+        <Heading5 title="Danh sách trống" className="text-[#a5a6c4] text-[15px]" />
     );
 };

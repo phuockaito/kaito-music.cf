@@ -21,12 +21,12 @@ export const CardMusic = ({ className, loading, title, titleClassName = "text-wh
             ) : (
                 <WrapperCarousel slidesPerView={6} spacingPerView={10} responsive={responsiveCarousel}>
                     {data.map((item: MusicType, index: number) => (
-                        <div className="keen-slider__slide bg-[rgba(33,33,42,255)]" key={index}>
+                        <div className="keen-slider__slide bg-[rgba(33,33,42,255)] rounded-[0.35rem]" key={index}>
                             <ItemCard
                                 data={data}
                                 index={index}
                                 {...item}
-                                className="grid grid-cols-1 min-w-3xl w-full h-full overflow-hidden"
+                                className="grid w-full h-full grid-cols-1 overflow-hidden min-w-3xl"
                             />
                         </div>
                     ))}

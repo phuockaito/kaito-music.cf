@@ -12,11 +12,11 @@ const Favorite = () => {
     }, [error, handleGetFavoriteAccount]);
 
     return loading ? (
-        <ListLoading items={27} className="grid grid-template-columns-3 gap-x-2 gap-y-1" />
+        <ListLoading items={21} className="grid grid-cols-1 gap-2 lg:grid-cols-2 2xl:grid-cols-3" />
     ) : (
         <>
             <Heading3 title="Đã thích" className="mb-4 text-white" />
-            <div className="grid gap-3 grid-template-columns-3">
+            <div className="grid grid-cols-1 gap-2 lg:grid-cols-2 2xl:grid-cols-3">
                 {data.map((item, index) => (
                     <ItemList
                         account_favorite={item.music.account_favorite}
@@ -31,6 +31,8 @@ const Favorite = () => {
                         data={data}
                         index={index}
                         otherDot
+                        favorite={item.music.favorite}
+                        view={item.music.view}
                     />
                 ))}
             </div>

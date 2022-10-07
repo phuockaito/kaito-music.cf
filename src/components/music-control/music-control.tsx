@@ -22,8 +22,8 @@ export const MusicControl = () => {
             {dropdownMusic && (
                 <div className="fixed bottom-0 inline-block p-4 group_music_control__btn_play">
                     <div className="relative">
-                        <div className="w-full h-full bg-[#ff3465] animate-ping absolute rounded-[0.35rem]" />
-                        <div className="bg-[#ff3465] transition-ease-in-out text-white cursor-pointer transform hover:scale-125 rounded-[0.35rem] p-1">
+                        {playing && <div className="w-full h-full bg-[#ff3465] animate-ping absolute rounded-full" />}
+                        <div className="bg-[#ff3465] transition-ease-in-out text-white cursor-pointer transform hover:scale-125 rounded-full p-1">
                             <RiPlayCircleLine size="2.5em" onClick={() => handleOnDropdownMusic(false)} />
                         </div>
                     </div>

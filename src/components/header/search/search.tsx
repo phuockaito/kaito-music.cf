@@ -36,26 +36,26 @@ export const Search = ({ setOpen, open, className }: SearchProps) => {
                     <BsSearch className="text-white" size="1.2em" />
                 </div>
                 {/* display:node <= max-width: 700px */}
-                <div className="group-search__icon group-search__icon_node cursor-pointer flex items-center pr-2 relative z-20">
+                <div className="relative z-20 flex items-center pr-2 cursor-pointer group-search__icon group-search__icon_node">
                     <BsSearch className="text-white" size="1.2em" />
                 </div>
                 {/*  */}
                 <input
                     onChange={onChangeSearch}
-                    placeholder="Nhập tên bài hát, nghệ sĩ hoặc MV..."
+                    placeholder="Nhập tên bài hát, ca sĩ, thể loại..."
                     type="text"
                     value={search}
-                    className="group-search__input autofocus bg-transparent focus:outline-none text-white w-full"
+                    className="w-full text-white bg-transparent group-search__input autofocus focus:outline-none"
                 />
                 {search && !loading && (
                     <MdClose
-                        className="text-white mr-2 self-center cursor-pointer group-search__icon_node"
+                        className="self-center mr-2 text-white cursor-pointer group-search__icon_node"
                         size="1.5em"
                         onClick={clear}
                     />
                 )}
                 {search && data && <ResultSearch data={data} className={clsx(open && "p-2")} />}
-                {loading && <VscLoading className="animate-spin text-white mr-2 self-center" size="1.5em" />}
+                {loading && <VscLoading className="self-center mr-2 text-white animate-spin" size="1.5em" />}
             </div>
         </>
     );

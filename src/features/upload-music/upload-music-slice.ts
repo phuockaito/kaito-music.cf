@@ -4,7 +4,7 @@ import { notification } from "antd";
 import { customUploadMusicType, MusicType, PaginationParams } from "type";
 import { initialUploadMusic } from "state";
 
-import { getUploadMusic, postUploadMusic, deleteMusic, editUploadMusic } from "./patch-api";
+import { getUploadMusic, postUploadMusic, deleteMusic, editUploadMusic, searchMusicUploads } from "./patch-api";
 import { postLogout } from "features";
 
 const UploadMusicSlice = createSlice({
@@ -103,6 +103,30 @@ const UploadMusicSlice = createSlice({
             state.pagination = {} as PaginationParams;
             state.loading = false;
         });
+        // search music
+        // builder.addCase(searchMusicUploads.fulfilled, (state, action: any) => {
+        //     const { data, pagination } = action.payload;
+        //     state.data = data;
+        //     state.pagination = pagination;
+        // });
+        builder
+            .addCase(searchMusicUploads.pending, (state) => {
+                state.loading = true;
+                window.scrollTo({
+                    top: 0,
+                    behavior: "smooth",
+                });
+            })
+            .addCase(searchMusicUploads.fulfilled, (state, action: any) => {
+                const { data, pagination } = action.payload;
+                state.loading = false;
+                state.data = data;
+                state.pagination = pagination;
+            })
+            .addCase(searchMusicUploads.rejected, (state) => {
+                state.loading = false;
+                state.error = true;
+            });
     },
 });
 

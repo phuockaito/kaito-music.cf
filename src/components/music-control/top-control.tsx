@@ -22,14 +22,14 @@ export const TopControl = ({ SrcMusic }: TopControlProps) => {
             </div>
             <div
                 className={clsx(
-                    "group_music_control__dropdown transition-ease-in-out fixed p-2 bg-[rgba(33,33,42,255)] rounded-sm",
+                    "group_music_control__dropdown transition-ease-in-out fixed p-2 bg-[rgba(33,33,42,255)] rounded-[0.35rem]",
                     !dropdownMusic && SrcMusic ? "bottom-24 opacity-100" : "-bottom-full opacity-0",
                     openSearch && "active-hidden"
                 )}
                 onClick={() => handleOnDropdownMusic(true)}
             >
                 <FaAngleDoubleDown
-                    className="sticky bottom-0 transition-ease-in-out text-white cursor-pointer transform hover:scale-125 inline-block"
+                    className="sticky bottom-0 inline-block text-white transform cursor-pointer transition-ease-in-out hover:scale-125"
                     size="1.2rem"
                 />
             </div>

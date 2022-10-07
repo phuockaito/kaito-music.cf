@@ -19,7 +19,7 @@ export const ItemCard = (props: CustomProps) => {
                 src={props.image_music}
                 alt={props.image_music}
                 timeMusic={
-                    <p className="absolute top-2 right-2 rounded text-white bg-[#1c191794] py-1 px-2 text-xs">
+                    <p className="absolute top-2 right-2 rounded-[0.35rem] text-white bg-[#1c191794] py-1 px-2 text-xs">
                         {props.time_format}
                     </p>
                 }

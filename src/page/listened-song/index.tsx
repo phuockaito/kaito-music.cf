@@ -21,16 +21,24 @@ const ListenedSong = () => {
     }, [page, error, HandelGetLayHistoryAPI, pagination._total]);
 
     return !pagination._total ? (
-        <CardLoading items={10} className="grid grid-template-columns-4 gap-4" />
+        <CardLoading
+            items={10}
+            className="grid grid-cols-2 gap-4 my-4 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-7"
+        />
     ) : (
         <InfiniteScroll
             dataLength={data.length}
             next={fetchMoreData}
-            hasMore={data.length === pagination._total ? false : true}
-            loader={<CardLoading items={data.length || 10} className="grid grid-template-columns-4 gap-4 my-4" />}
+            hasMore={data.length < pagination._total}
+            loader={
+                <CardLoading
+                    items={data.length || 10}
+                    className="grid grid-cols-2 gap-4 my-4 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-7"
+                />
+            }
         >
-            <Heading3 title="Lịch sử xem" className="text-white mb-4" />
-            <div className="grid grid-template-columns-4 gap-4">
+            <Heading3 title="Lịch sử xem" className="mb-4 text-white" />
+            <div className="grid grid-cols-2 gap-4 my-4 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-7">
                 {data.map((item: MusicType, index: number) => (
                     <ItemCard
                         key={index}

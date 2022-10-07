@@ -30,8 +30,8 @@ export const Image = ({
                 key={alt}
                 height="100%"
                 width="100%"
-                className={clsx("rounded-sm object-revert", imageClassName)}
-                wrapperClassName={clsx("rounded-sm object-revert", imageClassName)}
+                className={clsx("rounded-[0.35rem] object-revert", imageClassName)}
+                wrapperClassName={clsx("rounded-[0.35rem] object-revert", imageClassName)}
             />
             {timeMusic}
             {children}

@@ -1,7 +1,14 @@
 import React from "react";
 
 import { useAppDispatch, useAppSelector, UseAccount, UseModal } from "hooks";
-import { getUploadMusic, uploadMusicStore, postUploadMusic, deleteMusic, editUploadMusic } from "features";
+import {
+    getUploadMusic,
+    uploadMusicStore,
+    postUploadMusic,
+    deleteMusic,
+    editUploadMusic,
+    searchMusicUploads,
+} from "features";
 
 import { ParamsUrl } from "type";
 import { message, notification } from "antd";
@@ -22,6 +29,10 @@ export const UseUploadMusic = () => {
     // dispatch api
     const handleGetUploadMusic = React.useCallback(
         (params: ParamsUrl) => accessToken && dispatch(getUploadMusic(params)),
+        [dispatch, accessToken]
+    );
+    const handleSearchMusicUploads = React.useCallback(
+        (params: ParamsUrl) => accessToken && dispatch(searchMusicUploads(params)),
         [dispatch, accessToken]
     );
 
@@ -68,8 +79,8 @@ export const UseUploadMusic = () => {
             formData.append("image_music", image_music ? image_music[0].originFileObj : others?.image_music);
             formData.append("src_music", src_music ? src_music[0].originFileObj : others?.src_music);
             formData.append("upload", JSON.stringify(data));
-            const youtube = link_mv.split("/");
-            if (youtube.length === 4) {
+            const id_youtube = matchYoutubeUrl(link_mv);
+            if (id_youtube) {
                 if (others) {
                     const result = await handleEditMusicUpload(formData);
                     if (result) toggle({ type: ModalTypeEnum.NULL, title: "" });
@@ -88,6 +99,7 @@ export const UseUploadMusic = () => {
         handleUploadMusicSource,
         handlePostUploadMusic,
         handleDeleteMusic,
+        handleSearchMusicUploads,
         others,
         statusUploadMusic,
         data,
@@ -99,3 +111,12 @@ export const UseUploadMusic = () => {
         newAudio,
     };
 };
+function matchYoutubeUrl(url: string) {
+    const p =
+        /^(?:https?:\/\/)?(?:www\.)?(?:youtu\.be\/|youtube\.com\/(?:embed\/|v\/|watch\?v=|watch\?.+&v=))((\w|-){11})(?:\S+)?$/;
+    const matches = url.match(p);
+    if (matches) {
+        return matches[1];
+    }
+    return false;
+}

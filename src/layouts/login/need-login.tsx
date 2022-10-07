@@ -37,7 +37,7 @@ export const NeedLogin = ({
             <div
                 className={clsx(
                     "flex space-x-4 items-center",
-                    isContent && "border border-white bg-[#01aaed] justify-center rounded-lg p-2 cursor-pointer"
+                    isContent && "border border-white bg-[#01aaed] justify-center rounded-[0.35rem] p-2 cursor-pointer"
                 )}
                 onClick={() => {
                     toggle({
