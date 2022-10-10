@@ -19,7 +19,7 @@ export enum ModalTypeEnum {
 export const homeMenu = [
     {
         title: "Cá nhân",
-        href: "/profile",
+        href: null,
         Icon: RiProfileLine,
     },
     {
@@ -29,7 +29,7 @@ export const homeMenu = [
     },
     {
         title: "Đang theo dõi",
-        href: "/following",
+        href: null,
         Icon: RiFileUserLine,
     },
 ];

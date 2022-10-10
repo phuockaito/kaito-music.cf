@@ -37,14 +37,14 @@ export const ItemInformation = ({
                 {view && (
                     <div className="flex text-[#a5a6c4] items-center rounded-b-[0.35rem]">
                         <BiShow className="w-4 h-4 mr-2" />
-                        <p className="m-0 text-sm font-semibold truncate">{view && formatView.format(view)} lượt xem</p>
+                        <p className="m-0 text-sm font-semibold truncate">{view && formatView.format(view)} view</p>
                     </div>
                 )}
                 {favorite && (
                     <div className="flex text-[#a5a6c4] items-center rounded-b-[0.35rem]">
                         <MdFavoriteBorder className="w-4 h-4 mr-2" />
                         <p className="m-0 text-sm font-semibold truncate">
-                            {favorite && formatView.format(favorite)} lượt thích
+                            {favorite && formatView.format(favorite)} favorite
                         </p>
                     </div>
                 )}

@@ -103,12 +103,6 @@ const UploadMusicSlice = createSlice({
             state.pagination = {} as PaginationParams;
             state.loading = false;
         });
-        // search music
-        // builder.addCase(searchMusicUploads.fulfilled, (state, action: any) => {
-        //     const { data, pagination } = action.payload;
-        //     state.data = data;
-        //     state.pagination = pagination;
-        // });
         builder
             .addCase(searchMusicUploads.pending, (state) => {
                 state.loading = true;
