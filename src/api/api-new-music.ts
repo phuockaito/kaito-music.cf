@@ -3,7 +3,7 @@ import { MusicType, StateResponse, ParamsUrl } from "type";
 
 const newMusicAPI = {
     getNewMusic(params: ParamsUrl): Promise<StateResponse<MusicType>> {
-        const url = "music/get-all";
+        const url = "music/new-music";
         return axiosClient.get(url, { params });
     },
 };
