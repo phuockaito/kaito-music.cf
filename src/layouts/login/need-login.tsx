@@ -51,7 +51,7 @@ export const NeedLogin = ({
             </div>
         </div>
     ) : (
-        <div className={clsx("flex content-center space-x-4 cursor-pointer", className)} onClick={onClick}>
+        <div className={clsx("flex content-center space-x-4", className)} onClick={onClick}>
             {icon}
             {title && <Heading title={title} className={titleClassName} />}
         </div>

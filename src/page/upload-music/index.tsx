@@ -51,7 +51,7 @@ const UploadMusic = ({ location }: any) => {
         <div>
             <div className="flex flex-col justify-between gap-2 mb-4 sm:flex-row sm:gap-0">
                 <Heading3 title="Danh Sách Tải Lên" className="text-white" />
-                <div>
+                <div className="w-full max-w-xs">
                     <StyledForm
                         style={{
                             display: "flex",

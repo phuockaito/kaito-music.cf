@@ -11,3 +11,4 @@ export * from "./play-history";
 export * from "./favorite-account";
 export * from "./upload-music";
 export * from "./comment";
+export * from "./views-million";

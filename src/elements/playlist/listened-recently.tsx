@@ -67,7 +67,7 @@ export const ListenedRecently = ({ className, children }: ListenedRecentlyProps)
                     _id={item._id}
                     src_music={item.src_music}
                     index={index}
-                    activeClass="bg-[#0b0003]"
+                    activeClass="bg-[#9b4de0]"
                     item={item}
                 />
             ))}

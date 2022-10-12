@@ -1,7 +1,7 @@
 import { WrapperBanner } from "./banner";
 import { Trending } from "./trending";
 import { Favorite } from "./favorite";
-import { NewMusic } from "elements";
+import { NewMusic, TopViewsBillion, TopViewsMillion } from "elements";
 
 const Home = () => {
     return (
@@ -11,6 +11,8 @@ const Home = () => {
                 <Trending />
                 <NewMusic />
                 <Favorite />
+                <TopViewsMillion />
+                <TopViewsBillion />
             </div>
         </div>
     );

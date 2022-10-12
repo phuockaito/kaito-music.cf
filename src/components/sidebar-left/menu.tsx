@@ -63,12 +63,12 @@ export const Menu = () => {
                             <NeedLogin
                                 key={index}
                                 login={item.href === "/" ? false : !accessToken}
-                                icon={<item.Icon size="1.8em" className={activeMenu(item.href)} />}
+                                icon={<item.Icon size="1.8em" className={activeMenu(item.href ? item.href : "")} />}
                                 title={item.title}
-                                titleClassName={clsx("cursor-pointer text-lg mb-0", activeMenu(item.href))}
-                                className="py-2 group"
+                                titleClassName={clsx("text-lg mb-0", activeMenu(item.href ? item.href : ""))}
+                                className={clsx("py-2 group", item.href ? "cursor-pointer" : "cursor-not-allowed")}
                                 Heading={Heading5}
-                                onClick={() => handlePushPage(item.href)}
+                                onClick={() => (item.href ? handlePushPage(item.href) : null)}
                             />
                         ))}
                     </div>
@@ -81,7 +81,7 @@ export const Menu = () => {
                                 icon={<item.Icon size="1.8em" className={activeMenu(item.href)} />}
                                 title={item.title}
                                 titleClassName={clsx("cursor-pointer text-lg", activeMenu(item.href))}
-                                className="py-2 group"
+                                className="py-2 cursor-pointer group"
                                 Heading={Heading5}
                                 onClick={() => handlePushPage(item.href)}
                             />

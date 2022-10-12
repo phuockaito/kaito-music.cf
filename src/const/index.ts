@@ -1,9 +1,6 @@
-import { RiCompassDiscoverFill } from "react-icons/ri";
-import { RiFileUserLine } from "react-icons/ri";
 import { MdFavoriteBorder } from "react-icons/md";
 import { MdLibraryMusic } from "react-icons/md";
-import { AiOutlineCloudUpload } from "react-icons/ai";
-import { RiProfileLine } from "react-icons/ri";
+import { AiOutlineCloudUpload, AiOutlineHome } from "react-icons/ai";
 
 export enum ModalTypeEnum {
     ADD_LIST_MUSIC,
@@ -17,21 +14,21 @@ export enum ModalTypeEnum {
 }
 
 export const homeMenu = [
+    // {
+    //     title: "Cá nhân",
+    //     href: null,
+    //     Icon: RiProfileLine,
+    // },
     {
-        title: "Cá nhân",
-        href: "/profile",
-        Icon: RiProfileLine,
-    },
-    {
-        title: "Khám phá",
+        title: "Trang Chủ",
         href: "/",
-        Icon: RiCompassDiscoverFill,
+        Icon: AiOutlineHome,
     },
-    {
-        title: "Đang theo dõi",
-        href: "/following",
-        Icon: RiFileUserLine,
-    },
+    // {
+    //     title: "Đang theo dõi",
+    //     href: null,
+    //     Icon: RiFileUserLine,
+    // },
 ];
 
 export const musicMenu = [

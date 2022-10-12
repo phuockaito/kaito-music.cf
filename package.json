@@ -3,6 +3,8 @@
     "version": "0.1.0",
     "private": true,
     "dependencies": {
+        "@capacitor/android": "^4.3.0",
+        "@capacitor/ios": "^4.3.0",
         "@craco/craco": "^6.4.5",
         "antd": "^4.23.2",
         "axios": "^0.21.1",
@@ -50,6 +52,8 @@
         ]
     },
     "devDependencies": {
+        "@capacitor/cli": "^4.3.0",
+        "@capacitor/core": "^4.3.0",
         "@headlessui/react": "^1.4.1",
         "@reduxjs/toolkit": "^1.5.1",
         "@testing-library/jest-dom": "^5.16.5",

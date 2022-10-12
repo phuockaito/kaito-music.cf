@@ -33,12 +33,12 @@ export const LeftControl = ({ playing, imageMusic, nameSinger, nameMusic }: Left
                     <div className="flex gap-3">
                         <div className="flex text-[#a5a6c4] items-center rounded-b-[0.35rem]">
                             <p className="m-0 text-sm font-semibold truncate">
-                                {formatView.format(musicPlay.view)} <span>lượt xem</span>
+                                {formatView.format(musicPlay.view)} <span>view</span>
                             </p>
                         </div>
                         <div className="flex text-[#a5a6c4] items-center rounded-b-[0.35rem]">
                             <p className="m-0 text-sm font-semibold truncate">
-                                {formatView.format(musicPlay.favorite)} <span>lượt thích</span>
+                                {formatView.format(musicPlay.favorite)} <span>favorite</span>
                             </p>
                         </div>
                     </div>
