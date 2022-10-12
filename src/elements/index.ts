@@ -6,3 +6,4 @@ export * from "./music-card";
 export * from "./list-music";
 export * from "./playlist";
 export * from "./form-comment";
+export * from "./top-views";

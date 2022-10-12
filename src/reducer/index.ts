@@ -10,6 +10,7 @@ import playHistoryReducer from "features/play-history/play-history-slice";
 import favoriteAccountReducer from "features/favorite-account/favorite-account-slice";
 import uploadMusicReducer from "features/upload-music/upload-music-slice";
 import commentReducer from "features/comment/comment-slice";
+import TopViewsReducer from "features/views-million/views-million-slice";
 
 const reducer = {
     search: searchReducer,
@@ -24,5 +25,6 @@ const reducer = {
     favoriteAccount: favoriteAccountReducer,
     uploadMusic: uploadMusicReducer,
     comment: commentReducer,
+    TopViews: TopViewsReducer,
 };
 export default reducer;

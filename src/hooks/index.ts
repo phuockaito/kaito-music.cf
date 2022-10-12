@@ -12,3 +12,4 @@ export * from "./use-play-history";
 export * from "./use-favorite-account";
 export * from "./use-upload-music";
 export * from "./use-comment";
+export * from "./use-top-views";

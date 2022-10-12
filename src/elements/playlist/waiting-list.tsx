@@ -52,7 +52,7 @@ export const WaitingList = () => {
                         index={index}
                         timeFormat={item.time_format}
                         data={listData}
-                        activeClass="bg-[#0b0003]"
+                        activeClass="bg-[#9b4de0]"
                         otherDot
                         isDeleteMusic={dataByIdPlayList.length ? true : false}
                     />

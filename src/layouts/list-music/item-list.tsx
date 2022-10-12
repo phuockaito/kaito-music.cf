@@ -39,7 +39,7 @@ export const ItemList = ({
     src_music,
     index,
     data,
-    activeClass = "bg-[#2f2f3a]",
+    activeClass = "bg-[#9b4de0]",
     otherDot,
     childrenPros,
     oneMusic,

@@ -4,19 +4,19 @@ interface ListLoadingProps {
     className?: string;
 }
 export const ListLoading = ({
-    items = 16,
+    items = 20,
     className = "grid gap-x-2 gap-y-1 grid-template-columns",
 }: ListLoadingProps) => {
     return (
         <div className={className}>
             {[...Array(items)].map((_, i) => (
-                <div className="loading__card flex h-16 space-x-4" key={i}>
-                    <div className="header h-12">
-                        <div className="img w-12 h-12" />
+                <div className="flex h-16 space-x-4 loading__card" key={i}>
+                    <div className="h-12 header">
+                        <div className="w-12 h-12 img" />
                     </div>
                     <div className="w-full">
-                        <div className="line my-2" />
-                        <div className="line my-2" />
+                        <div className="my-2 line" />
+                        <div className="my-2 line" />
                     </div>
                 </div>
             ))}
