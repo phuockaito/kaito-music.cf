@@ -4,6 +4,7 @@ import { useHistory, useLocation } from "react-router-dom";
 
 import { WrapperScroll, BeforeApter, PlaylistsAlbums, NeedLogin } from "layouts";
 import { Heading5 } from "elements";
+import { Image } from "layouts";
 
 import { useToggle, UseAccount } from "hooks";
 import { UseContextControllers } from "contexts";
@@ -89,8 +90,24 @@ export const Menu = () => {
                     </div>
                     <Heading5 title="Danh sách playlist" className="uppercase text-[#dfe6eb] my-4" />
                     <PlaylistsAlbums />
+                    <div className="mt-4">
+                        <a
+                            href="https://drive.google.com/file/d/1q-J2dKJR7KPKCwcRw9YUYjPv_lNWQ-zw/view?usp=sharing"
+                            target="_blank"
+                            rel="noreferrer"
+                            className="flex items-center justify-center gap-2 mb-0"
+                        >
+                            <p className="mb-0 text-lg text-yellow-300">Download Android</p>
+
+                            <Image
+                                imageClassName="w-8 h-8"
+                                src="https://res.cloudinary.com/phuockaito/image/upload/v1665568602/banner/732208_pblqlf.png"
+                            />
+                        </a>
+                    </div>
                 </WrapperScroll>
             </div>
+
             {open && <BeforeApter className="z-20 bg-[#00000061]" onClick={() => setOpen(false)} />}
         </div>
     );

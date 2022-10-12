@@ -75,9 +75,9 @@ export const ModalLogin = () => {
                 </Button>
             </Form.Item>
             <LoginGoogle
-                className="cursor-pointer flex"
+                className="flex cursor-pointer"
                 elements={
-                    <div className="m-auto flex items-center space-x-2">
+                    <div className="flex items-center m-auto space-x-2">
                         <FcGoogle size="1.7em" />
                         <Heading6 title="Đăng nhập bằng google" className="text-[#a5a6c4]" />
                     </div>
