@@ -1,122 +1,166 @@
-# Live demo: [https://kaitomusic.cf](https://kaitomusic.cf)
+# Live demo: [kaito-music.vercel.app](https://kaito-music.vercel.app/)
 
 ## API
 
 #### `URL`: <https://api-v2-kaito-music.herokuapp.com/api>
 
-## Params default: `_limit=20&_page=1` `||` Null
+#### Params default: `_limit=20&_page=1`
 
-### `Get Trending` (`method: GET`): "URL/music/trending?`Params`"
+### `Trending` (`method: GET`): "URL/music/trending?`Params`"
 
-### `Get Favorite` (`method: GET`): "URL/music/favorite?`Params`"
+### `Favorite` (`method: GET`): "URL/music/favorite?`Params`"
 
-### `Get all` (`method: GET`): "URL/music/get-all?`Params`"
+### `New Music` (`method: GET`): "URL/music/new-music?`Params`"
+
+### `Top views` (`method: GET`): "URL/music/top-views?"
+
+-   params: "\_limit=20&\_page=1&\_type=million"
+-   "\_type": "million" or "billion"
+
+### `Top Favorite` (`method: GET`): "URL/music/top-favorite?"
+
+-   params: "\_limit=20&\_page=1&\_type=million"
+-   "\_type": "million" or "billion"
 
 ## Search
 
-### `search by (category,singer name, song name, mv)` (`method: GET`): "URL/search"
+### `search by (category,singer name, song name)` (`method: GET`): "URL/search"
 
-    -   params: { "query": ?, "_limit": ?, "_page": ? }
+-   params: { "query": ?, "\_limit": ?, "\_page": ? }
 
-## Play list music
+## Play List Music
 
 ### `Create` (`method: POST`): "URL/list-music/create"
 
-    - Body: { "idMusic": ?, "nameList: ? }
-    - Authorization: Bearer  `token`
+-   Body: { "idMusic": ?, "nameList: ? }
+-   Authorization: Bearer `accessToken`
 
 ### `Update` (`method: PUT`): "URL/list-music/update-name-list-music"
 
-    - Body: { "nameList": ?, "_id: ? }
-    - Authorization: Bearer  `token`
+-   Body: { "nameList": ?, "\_id: ? }
+-   Authorization: Bearer `accessToken`
 
 ### `Delete` (`method: PUT`): "URL/list-music/delete-list-music"
 
-    -   params: { "_id": ? }
-    -   Authorization: Bearer `token`
+-   params: { "\_id": ? }
+-   Authorization: Bearer `accessToken`
 
-### `Get all list music` (`method: GET`): "URL/list-music/get-list?`Params`"
+### `Get All Playlists` (`method: GET`): "URL/list-music/get-list?`Params`"
 
-    - Authorization: Bearer  `token`
+-   Authorization: Bearer `accessToken`
 
-### `Get list music` (`method: GET`): "URL/list-music/get-by-id"
+### `Get List Music` (`method: GET`): "URL/list-music/get-by-id"
 
-    - params: { "_id": ? }
-    - Authorization: Bearer `token`
+-   params: { "\_id": ? }
+-   Authorization: Bearer `accessToken`
 
 ## Music
 
-### `Get music` (`method: GET`): "URL/music/get-by-id"
+### `Get Music` (`method: GET`): "URL/music/get-by-id"
 
-    - params: { "_id": ? }
+-   params: { "\_id": ? }
+
+### `Get Music Name` (`method: GET`): "URL/music/get-music-name"
+
+-   params: { "\_name": ? }
+
+### `Get Singer Name` (`method: GET`): "URL/music/get-singer-name"
+
+-   params: { "\_singer\_": ? }
 
 ## Play history
 
 ### `Create` (`method: POST`): "URL/play-history/create"
 
-     - Body: { "idMusic": ? }
-     - Authorization: Bearer `token`
+-   Body: { "idMusic": ? }
+-   Authorization: Bearer `accessToken`
 
-### `Get music play history` (`method: GET`): "URL/play-history/get-by-token?`Params`"
+### `History` (`method: GET`): "URL/play-history/get-by-token?`Params`"
 
-     - Authorization: Bearer `token`
+-   Authorization: Bearer `accessToken`
 
 ## Comment
 
 ### `Create` (`method: POST`): "URL/comment/get-by-id-music"
 
-     - Body: { "content": ?, "id_music": ? }
-     - Authorization: Bearer `token`
+-   Body: { "content": ?, "id_music": ? }
+-   Authorization: Bearer `accessToken`
 
-### `History comment music` (`method: GET`): "URL/get-list-comment-authorization-token?`Params`"
+### `Get Comment` (`method: GET`): "URL/comment/get-by-id-music"
 
-     - Authorization: Bearer `token`
+-   params: { "\_id": ?, \_limit: ?, \_page: ? }
 
-### `Reply comment music` (`method: POST`): "URL/comment/get-by-id-music"
+### `History` (`method: GET`): "URL/get-list-comment-authorization-token?`Params`"
 
-     - Body: { "content": ?, "id_music": ? ,id_reply: id comment reply}
-     - Authorization: Bearer `token`
+-   Authorization: Bearer `accessToken`
+
+### `Reply` (`method: POST`): "URL/comment/get-by-id-music"
+
+-   Body: { "content": ?, "id_music": ? ,id_reply: id comment reply}
+-   Authorization: Bearer `accessToken`
 
 ### `Delete` (`method: DELETE`): "URL/comment/delete-by-id"
 
-     - params: { "_id": ?}
-     - Authorization: Bearer `token`
+-   params: { "\_id": ?}
+-   Authorization: Bearer `accessToken`
 
 ### `Update` (`method: PUT`): "URL/update-comment-by-id"
 
-     - body: {  "content": ? ,"_id": ?}
-     - Authorization: Bearer `token`
+-   body: { "content": ? ,"\_id": ?}
+-   Authorization: Bearer `accessToken`
 
-### `Get comment music` (`method: GET`): "URL/comment/get-by-id-music"
+## Favorite music
 
-    - params: { "_id": ?, _limit: ?, _page: ? }
+### `History` (`method: GET`): "URL/favorite/get-authorization-token?`Params`"
 
-## Favorite
+-   Authorization: Bearer `accessToken`
 
 ### `Create` (`method: POST`): "URL/favorite/create"
 
-    - Body: { "idMusic": ? }
-    - Authorization: Bearer `token`
+-   Body: { "idMusic": ? }
+-   Authorization: Bearer `accessToken`
+-   Response: { "message": "Create favorite success" }
 
-### `Get music favorite` (`method: GET`): "URL/favorite/get-authorization-token?`Params`"
+### `Remove` (`method: POST`): "URL/favorite/create"
 
-    - Authorization: Bearer `token`
+-   Body: { "idMusic": ? }
+-   Authorization: Bearer `accessToken`
+-   Response: { "message": "Delete favorite success" }
 
 ### `Delete` (`method: DELETE`): "URL/favorite/delete-by-id"
 
-    - params: { "_id": ? }
-    - Authorization: Bearer `token`
+-   params: { "\_id": ? }
+-   Authorization: Bearer `accessToken`
 
 ## Account
 
-### `Register` (`method: POST`):"URL/account"
+### `Register` (`method: POST`):"URL/account/register"
 
-    - Body: { "userName": ? , "password": ? , "email": ?}
+-   Body: { "userName": ? , "password": ? , "email": ?}
 
-### `login` (`method: POST`): "URL/login"
+### `Login` (`method: POST`): "URL/account/login"
 
-    - Body: { "email": ? ,"password": ? }
+-   Body: { "email": ? ,"password": ? }
 
-### `Profile` (`method: GET`): "URL/profile"
+### `Profile` (`method: GET`): "URL/account/profile"
 
-    - Authorization: Bearer `token`
+-   Authorization: Bearer `accessToken`
+
+## Upload Music
+
+### `upload` (`method: POST`): "URL/account/create"
+
+-   Authorization: Bearer `accessToken`
+-   body: { "name_music": ? , "name_singer": ? , "category": ? , "link_mv": ? , "src_music": ?, "image_music": ? }
+-   Note: "src_music" and "image_music" is file
+
+### `update` (`method: PUT`): "URL/account/edit"
+
+-   Authorization: Bearer `accessToken`
+-   body: { "name_music": ? , "name_singer": ? , "category": ? , "link_mv": ? , "src_music": ?, "image_music": ? }
+-   Note: "src_music" and "image_music" is file
+
+### `Search` (`method: PUT`): "URL/music/get-upload/search"
+
+-   Authorization: Bearer `accessToken`
+-   params: { "query": ?, "\_limit": ?, "\_page": ? }
