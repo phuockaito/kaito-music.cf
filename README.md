@@ -160,7 +160,7 @@
 -   body: { "name_music": ? , "name_singer": ? , "category": ? , "link_mv": ? , "src_music": ?, "image_music": ? }
 -   Note: "src_music" and "image_music" is file
 
-### `Search` (`method: PUT`): "URL/music/get-upload/search"
+### `Search` (`method: GET`): "URL/music/get-upload/search"
 
 -   Authorization: Bearer `accessToken`
 -   params: { "query": ?, "\_limit": ?, "\_page": ? }
