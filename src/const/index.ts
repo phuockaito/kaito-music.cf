@@ -60,5 +60,5 @@ export const bannerDefault = [
 ];
 
 // export const REACT_APP_API_URL = "http://localhost:3001/api";
-export const REACT_APP_API_URL = "https://api-v2-kaito-music.herokuapp.com/api";
+export const REACT_APP_API_URL = "https://api-kaito-music-i4epn6o10-phuockaito.vercel.app/api";
 export const CLINT_ID_GOOGLE = "147148304416-51hpf6le8b4q73jp3qpg9hvopvp32hbb.apps.googleusercontent.com";
