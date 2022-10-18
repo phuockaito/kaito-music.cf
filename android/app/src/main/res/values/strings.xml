@@ -2,6 +2,6 @@
 <resources>
     <string name="app_name">Kaito Music</string>
     <string name="title_activity_main">Kaito Music</string>
-    <string name="package_name">com.kaitophuoc.music</string>
-    <string name="custom_url_scheme">com.kaitophuoc.music</string>
+    <string name="package_name">com.kaito.music.vercel.app</string>
+    <string name="custom_url_scheme">com.kaito.music.vercel.app</string>
 </resources>
