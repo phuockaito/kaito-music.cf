@@ -66,7 +66,7 @@
 
 ### `Get Singer Name` (`method: GET`): "URL/music/get-singer-name"
 
--   params: { "\_singer\_": ? }
+-   params: { "\_singer\": ? }
 
 ## Play history
 
