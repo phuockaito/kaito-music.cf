@@ -82,10 +82,10 @@ export const CenterControl = ({ src_music }: CenterControlProps) => {
             <div className="grid flex-1 w-full max-w-sm grid-rows-1 space-y-2 group_play_control">
                 <div className="flex items-center justify-between">
                     <ImLoop
-                        className={clsx(
-                            "transition-ease-in-out text-white cursor-pointer transform hover:scale-125",
-                            loop ? "text-[#ff3465]" : "text-white"
-                        )}
+                        style={{
+                            color: loop ? "#ff3465" : "#ffff",
+                        }}
+                        className={clsx("transition-ease-in-out text-white cursor-pointer transform hover:scale-125")}
                         size="1.3em"
                         onClick={() => setLoop(!loop)}
                     />
@@ -109,10 +109,10 @@ export const CenterControl = ({ src_music }: CenterControlProps) => {
                         onClick={() => handleOnNextPrevMusic(index + 1)}
                     />
                     <FaRandom
-                        className={clsx(
-                            "transition-ease-in-out text-white cursor-pointer transform hover:scale-125",
-                            isRandom ? "text-[#ff3465]" : "text-white"
-                        )}
+                        style={{
+                            color: isRandom ? "#ff3465" : "#ffff",
+                        }}
+                        className={clsx("transition-ease-in-out text-white cursor-pointer transform hover:scale-125")}
                         size="1.5em"
                         onClick={() => setIsRandom(!isRandom)}
                     />
