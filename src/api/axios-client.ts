@@ -1,7 +1,7 @@
 import axios, { AxiosRequestConfig, AxiosResponse } from "axios";
 import { ParamsUrl } from "type";
 import queryString from "query-string";
-import { REACT_APP_API_URL } from "const";
+import { REACT_APP_API_URL, handleGetHashCode } from "const";
 
 const axiosClient = axios.create({
     baseURL: REACT_APP_API_URL,
@@ -14,9 +14,9 @@ const axiosClient = axios.create({
 
 axiosClient.interceptors.request.use(
     (config: AxiosRequestConfig) => {
-        const accessToken = localStorage.accessToken;
-        if (accessToken) {
-            config.headers.Authorization = `Bearer ${accessToken}`;
+        const xs = handleGetHashCode();
+        if (xs) {
+            config.headers.Authorization = `Bearer ${xs}`;
         }
         return config;
     },

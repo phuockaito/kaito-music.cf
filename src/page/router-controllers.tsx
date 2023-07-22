@@ -4,15 +4,15 @@ import { Switch, Route, Redirect, useHistory } from "react-router-dom";
 
 import { UseAccount } from "hooks";
 import Page from "./index";
+import { handleGetHashCode } from "const";
 
-const accessTokenLocal = localStorage.accessToken;
-
+const xs = handleGetHashCode();
 const RouterControllers = () => {
     const { accessToken } = UseAccount();
     const history = useHistory();
 
     React.useEffect(() => {
-        if (!accessTokenLocal && !accessToken) history.push("/");
+        if (!xs && !accessToken) history.push("/");
     }, [accessToken, history]);
 
     return (

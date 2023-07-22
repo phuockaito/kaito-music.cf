@@ -1,9 +1,11 @@
 import { ActionReducerMapBuilder, createSlice } from "@reduxjs/toolkit";
+import Cookies from "js-cookie";
+import { notification } from "antd";
 
 import { loginGoogle, getProfile, postLogin, postRegister, postLogout } from "./patch-api";
 import { initialStateAccount } from "state";
 import { CustomAccount, Account } from "type";
-import { notification } from "antd";
+import { KEY, handleHashCode } from "const";
 
 const accountSlice = createSlice({
     name: "account",
@@ -19,7 +21,7 @@ const accountSlice = createSlice({
                 state.loadingGoogle = false;
                 state.data = data;
                 state.accessToken = accessToken;
-                localStorage.setItem("accessToken", accessToken);
+                handleHashCode(accessToken);
                 notification.success({
                     message: "Đăng nhập thành công",
                 });
@@ -45,7 +47,7 @@ const accountSlice = createSlice({
             .addCase(getProfile.rejected, (state) => {
                 state.loading = false;
                 state.accessToken = "";
-                localStorage.removeItem("accessToken");
+                Cookies.remove(KEY);
             });
         // login
         builder
@@ -54,10 +56,10 @@ const accountSlice = createSlice({
             })
             .addCase(postLogin.fulfilled, (state, action) => {
                 const { data, accessToken } = action.payload;
+                handleHashCode(accessToken);
                 state.data = data;
                 state.accessToken = accessToken;
                 state.loading = false;
-                localStorage.setItem("accessToken", accessToken);
                 notification.success({
                     message: "Đăng nhập thành công",
                 });
@@ -72,7 +74,7 @@ const accountSlice = createSlice({
         builder.addCase(postLogout.fulfilled, (state) => {
             state.data = {} as Account;
             state.accessToken = "";
-            localStorage.removeItem("accessToken");
+            Cookies.remove(KEY);
             notification.success({
                 message: "Đăng xuất thành công",
             });
@@ -87,7 +89,7 @@ const accountSlice = createSlice({
                 state.data = data;
                 state.accessToken = accessToken;
                 state.loading = false;
-                localStorage.setItem("accessToken", accessToken);
+                handleHashCode(accessToken);
                 notification.success({
                     message: "Đăng ký thành công",
                 });

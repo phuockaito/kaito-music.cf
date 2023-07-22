@@ -1,6 +1,8 @@
 import { MdFavoriteBorder } from "react-icons/md";
 import { MdLibraryMusic } from "react-icons/md";
 import { AiOutlineCloudUpload, AiOutlineHome } from "react-icons/ai";
+import CryptoJS from "crypto-js";
+import Cookies from "js-cookie";
 
 export enum ModalTypeEnum {
     ADD_LIST_MUSIC,
@@ -62,3 +64,20 @@ export const bannerDefault = [
 // export const REACT_APP_API_URL = "http://localhost:3001/api";
 export const REACT_APP_API_URL = "https://api-kaito-music.vercel.app/api";
 export const CLINT_ID_GOOGLE = "147148304416-51hpf6le8b4q73jp3qpg9hvopvp32hbb.apps.googleusercontent.com";
+export const HASH_CODE = REACT_APP_API_URL;
+export const KEY = "xs";
+
+export const handleHashCode = (code: string) => {
+    const cipherText = CryptoJS.AES.encrypt(JSON.stringify(code), HASH_CODE).toString();
+    return Cookies.set(KEY, cipherText, { expires: 7, path: "/", domain: "" });
+};
+
+export const handleGetHashCode = () => {
+    const xs = Cookies.get(KEY) || "";
+    if (xs) {
+        const bytes = CryptoJS.AES.decrypt(xs, HASH_CODE);
+        const decryptedData = JSON.parse(bytes.toString(CryptoJS.enc.Utf8));
+        return decryptedData;
+    }
+    return;
+};

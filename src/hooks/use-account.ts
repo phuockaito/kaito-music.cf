@@ -10,8 +10,9 @@ import {
     postRegister,
 } from "features";
 import { LoginType, RegisterType } from "type";
+import { handleGetHashCode } from "const";
 
-const accessTokenLocal = localStorage.getItem("accessToken");
+const xs = handleGetHashCode();
 export const UseAccount = () => {
     const dispatch = useAppDispatch();
 
@@ -26,7 +27,7 @@ export const UseAccount = () => {
         [dispatch, accessToken]
     );
     const loginGoogleAPI = React.useCallback((token: string) => dispatch(loginGoogle(token)), [dispatch]);
-    const getProfileAPI = React.useCallback(() => accessTokenLocal && dispatch(getProfile()), [dispatch]);
+    const getProfileAPI = React.useCallback(() => xs && dispatch(getProfile()), [dispatch]);
 
     const responseGoogle = (response: any) => {
         const { tokenId } = response;
