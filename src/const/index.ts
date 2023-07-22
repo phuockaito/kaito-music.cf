@@ -69,7 +69,7 @@ export const KEY = "xs";
 
 export const handleHashCode = (code: string) => {
     const cipherText = CryptoJS.AES.encrypt(JSON.stringify(code), HASH_CODE).toString();
-    return Cookies.set(KEY, cipherText, { expires: 7, path: "/", domain: "" });
+    return Cookies.set(KEY, cipherText, { expires: 7, path: "/", domain: "kaito-music.vercel.app" });
 };
 
 export const handleGetHashCode = () => {
