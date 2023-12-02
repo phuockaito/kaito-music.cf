@@ -68,16 +68,10 @@ export const HASH_CODE = REACT_APP_API_URL;
 export const KEY = "xs";
 
 export const handleHashCode = (code: string) => {
-    const cipherText = CryptoJS.AES.encrypt(JSON.stringify(code), HASH_CODE).toString();
-    return Cookies.set(KEY, cipherText, { expires: 7, path: "/", domain: "kaito-music.vercel.app" });
+    return Cookies.set(KEY, code, { expires: 7, path: "/" });
 };
 
 export const handleGetHashCode = () => {
     const xs = Cookies.get(KEY) || "";
-    if (xs) {
-        const bytes = CryptoJS.AES.decrypt(xs, HASH_CODE);
-        const decryptedData = JSON.parse(bytes.toString(CryptoJS.enc.Utf8));
-        return decryptedData;
-    }
-    return;
+    return xs;
 };
