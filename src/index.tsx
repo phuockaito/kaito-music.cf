@@ -1,5 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
+import { Analytics } from "@vercel/analytics/react";
 
 import "./styles/index.css";
 
@@ -20,6 +21,7 @@ root.render(
         <Router>
             <UseContextProvider>
                 <App />
+                <Analytics />
             </UseContextProvider>
         </Router>
     </Provider>
