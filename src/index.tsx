@@ -1,6 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import { Analytics } from "@vercel/analytics/react";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 import "./styles/index.css";
 
@@ -22,6 +23,7 @@ root.render(
             <UseContextProvider>
                 <App />
                 <Analytics />
+                <SpeedInsights />
             </UseContextProvider>
         </Router>
     </Provider>

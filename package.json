@@ -13,6 +13,7 @@
         "@capacitor/status-bar": "4.0.1",
         "@craco/craco": "^6.4.5",
         "@vercel/analytics": "^1.1.1",
+        "@vercel/speed-insights": "^1.0.0",
         "antd": "^4.23.2",
         "axios": "^0.21.1",
         "clsx": "^1.2.1",
