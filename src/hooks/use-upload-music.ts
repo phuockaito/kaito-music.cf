@@ -72,24 +72,31 @@ export const UseUploadMusic = () => {
     };
 
     const handlePostUploadMusic = async (value: any) => {
-        if (value) {
-            const formData = new FormData();
-            const { category, image_music, link_mv, name_music, name_singer, src_music } = value;
-            const data = { category, link_mv, name_music, name_singer, _id: others?._id };
-            formData.append("image_music", image_music ? image_music[0].originFileObj : others?.image_music);
-            formData.append("src_music", src_music ? src_music[0].originFileObj : others?.src_music);
-            formData.append("upload", JSON.stringify(data));
-            const id_youtube = matchYoutubeUrl(link_mv);
-            if (id_youtube) {
-                if (others) {
-                    const result = await handleEditMusicUpload(formData);
-                    if (result) toggle({ type: ModalTypeEnum.NULL, title: "" });
-                } else handlePostSourceMusic(formData);
-            } else
-                notification["error"]({
-                    message: "Thông Báo",
-                    description: "Link MV không hợp lệ!",
-                });
+        try {
+            if (value) {
+                const formData = new FormData();
+                const { category, image_music, link_mv, name_music, name_singer, src_music } = value;
+                const data = { category, link_mv, name_music, name_singer, _id: others?._id };
+                formData.append("image_music", image_music ? image_music[0].originFileObj : others?.image_music);
+                formData.append("src_music", src_music ? src_music[0].originFileObj : others?.src_music);
+                formData.append("upload", JSON.stringify(data));
+                const id_youtube = matchYoutubeUrl(link_mv);
+                if (id_youtube) {
+                    if (others) {
+                        const result = await handleEditMusicUpload(formData);
+                        if (result) toggle({ type: ModalTypeEnum.NULL, title: "" });
+                    } else handlePostSourceMusic(formData);
+                } else
+                    notification["error"]({
+                        message: "Thông Báo",
+                        description: "Link MV không hợp lệ!",
+                    });
+            }
+        } catch (_) {
+            notification["error"]({
+                message: "Thông Báo",
+                description: "Vui lòng thử lại sao",
+            });
         }
     };
 
