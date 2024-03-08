@@ -46,6 +46,22 @@
         gtag('config', 'G-7L4JFE1MWD');
     </script>
     <meta name="google-site-verification" content="B4GmSRtEGjC6npIeRJh0l_OY-tF9wHEDU5qbBdavY3I" />
+    <script src="https://www.gstatic.com/firebasejs/10.8.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.8.1/firebase-firestore-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.8.1/firebase-auth-compat.js"></script>
+    <script>
+        const firebaseApp = firebase.initializeApp({
+            apiKey: "AIzaSyDwuKXEXSpzOU-HwCf-mjUm8ZU-SVw3OVY",
+            authDomain: "kaito-music-326213.firebaseapp.com",
+            projectId: "kaito-music-326213",
+            storageBucket: "kaito-music-326213.appspot.com",
+            messagingSenderId: "147148304416",
+            appId: "1:147148304416:web:18d53943e9a02aeec98c45",
+            measurementId: "G-ZB24F4XQMG"
+        });
+        const db = firebaseApp.firestore();
+        const auth = firebaseApp.auth();
+    </script>
 </head>
 
 <body>
