@@ -1,7 +1,6 @@
 import clsx from "clsx";
 import { Popconfirm } from "antd";
 import { ReactNode } from "react";
-import { useHistory } from "react-router-dom";
 
 import { UsePlaylist, UseModal } from "hooks";
 import { Icon } from "./icon";
@@ -11,6 +10,7 @@ import { ModalTypeEnum } from "const";
 import { AiFillDelete } from "react-icons/ai";
 import { FiEdit } from "react-icons/fi";
 import { VscLoading } from "react-icons/vsc";
+import { useNavigate } from "react-router-dom";
 interface MenuItemProps {
     _id?: string;
     loading?: boolean;
@@ -37,7 +37,7 @@ export const MenuItem = ({
     setOpen,
     isEditDelete,
 }: MenuItemProps) => {
-    const history = useHistory();
+    const navigate = useNavigate();
     const { toggle } = UseModal();
     const { resultPlayList, handleDeletePlaylist } = UsePlaylist();
     const { loadingAddListMusic, id_playlist } = resultPlayList;
@@ -45,7 +45,7 @@ export const MenuItem = ({
     const onClickURL = () => {
         if (onClick) onClick();
         else {
-            history.push(href);
+            navigate(href);
             if (setOpen) setOpen();
         }
     };
@@ -61,7 +61,7 @@ export const MenuItem = ({
                 <Heading5 title={title} className={clsx("m-0 pl-4", titleClassName)} />
             </div>
             {isEditDelete && (
-                <div className="flex opacity-0 group-hover:opacity-100 text-white space-x-4">
+                <div className="flex space-x-4 text-white opacity-0 group-hover:opacity-100">
                     <FiEdit
                         size="1.3rem"
                         className="text-white"

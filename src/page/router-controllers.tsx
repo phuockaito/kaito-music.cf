@@ -1,7 +1,5 @@
 import React from "react";
-import { Suspense } from "react";
-import { Switch, Route, Redirect, useHistory } from "react-router-dom";
-
+import { Routes, Route, useNavigate } from "react-router-dom";
 import { UseAccount } from "hooks";
 import Page from "./index";
 import { handleGetHashCode } from "const";
@@ -9,21 +7,18 @@ import { handleGetHashCode } from "const";
 const xs = handleGetHashCode();
 const RouterControllers = () => {
     const { accessToken } = UseAccount();
-    const history = useHistory();
+    const navigate = useNavigate();
 
     React.useEffect(() => {
-        if (!xs && !accessToken) history.push("/");
-    }, [accessToken, history]);
+        if (!xs && !accessToken) navigate("/");
+    }, [accessToken, navigate]);
 
     return (
-        <Suspense fallback={<></>}>
-            <Switch>
-                {Page.map((item, index) => (
-                    <Route key={index} path={item.path} exact={item.exact} component={item.component} />
-                ))}
-                <Redirect to="/" from="/" />
-            </Switch>
-        </Suspense>
+        <Routes>
+            {Page.map(({ path, Component }) => (
+                <Route key={path} path={path} element={<Component />} />
+            ))}
+        </Routes>
     );
 };
 export default RouterControllers;
