@@ -1,5 +1,6 @@
 import React from "react";
 import { useAppDispatch, useAppSelector } from "hooks";
+
 import {
     musicStore,
     getMusicById,
@@ -15,8 +16,11 @@ import {
 } from "features";
 
 import { ParamsUrl, IndexMusicType, MusicType, onPlaylistType } from "type";
+import { useSearchParams } from "react-router-dom";
 
 export const UseMusic = () => {
+    const [searchParams, setSearchParams] = useSearchParams();
+
     const resultMusic = useAppSelector(musicStore);
     //create store
     const { data, _id_music, index, playing, dropdownMusic, dataRandom, audio } = resultMusic;
@@ -37,6 +41,8 @@ export const UseMusic = () => {
     const handleOnPlaylist = (data: onPlaylistType) => dispatch(onPlaylist(data));
     const handleAddIdPlaylist = (id_playList: string) => dispatch(addIdPlaylist(id_playList));
     // function
+    console.log({ searchParams });
+
     const setTitleWebsite = React.useCallback(() => {
         if (_id_music) {
             const metaTitle = document.querySelector("meta[name='title']");
@@ -50,7 +56,7 @@ export const UseMusic = () => {
 
             handleOnPauseMusic(true);
         }
-    }, [_id_music, handleOnPauseMusic, image_music, name_music]);
+    }, [_id_music, handleOnPauseMusic, image_music, name_music, searchParams]);
 
     const handlePausePlayClick = React.useCallback(() => {
         if (playing) audio?.pause();

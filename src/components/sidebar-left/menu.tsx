@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import clsx from "clsx";
-import { useHistory, useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 
 import { WrapperScroll, BeforeApter, PlaylistsAlbums, NeedLogin } from "layouts";
 import { Heading5 } from "elements";
@@ -15,14 +15,14 @@ import "./style.css";
 
 export const Menu = () => {
     let { pathname } = useLocation();
-    const history = useHistory();
+    const navigate = useNavigate();
 
     const { dropdownMenu } = UseContextControllers();
     const { open, setOpen } = useToggle();
     const { accessToken } = UseAccount();
 
     const handlePushPage = (path: string) => {
-        history.push(path);
+        navigate(path);
         setOpen(false);
     };
 

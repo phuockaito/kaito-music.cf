@@ -8,23 +8,19 @@ const UploadMusic = lazy(() => import("./upload-music"));
 const Page = [
     {
         path: "/",
-        exact: true,
-        component: HomePage,
+        Component: HomePage,
     },
     {
         path: "/favorite",
-        exact: true,
-        component: Favorite,
+        Component: Favorite,
     },
     {
         path: "/listened-song",
-        exact: true,
-        component: ListenedSong,
+        Component: ListenedSong,
     },
     {
         path: "/upload-music",
-        exact: true,
-        component: UploadMusic,
+        Component: UploadMusic,
     },
 ];
 export default Page;

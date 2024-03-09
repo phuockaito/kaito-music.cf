@@ -1,5 +1,5 @@
 import clsx from "clsx";
-import { BrowserRouter as Router } from "react-router-dom";
+import { BrowserRouter, Routes } from "react-router-dom";
 
 import { ModalComponent } from "modal";
 import { UseContextControllers } from "contexts";
@@ -13,7 +13,7 @@ export const App = () => {
     const { dropdownMenu } = UseContextControllers();
 
     return (
-        <Router>
+        <BrowserRouter>
             <Section className="w-full h-full">
                 <Header />
                 <Menu />
@@ -28,6 +28,6 @@ export const App = () => {
             </Section>
             <ModalComponent />
             <WrapperVideo />
-        </Router>
+        </BrowserRouter>
     );
 };

@@ -1,6 +1,5 @@
 import React from "react";
 import { Tooltip, Pagination, Popconfirm, Input, Form } from "antd";
-import { useHistory } from "react-router-dom";
 import queryString from "query-string";
 import styled from "styled-components";
 
@@ -16,12 +15,13 @@ import { ModalTypeEnum } from "const";
 import { MusicType } from "type";
 import "./style.css";
 import { BsSearch } from "react-icons/bs";
+import { useNavigate } from "react-router-dom";
 
 const UploadMusic = ({ location }: any) => {
     const { toggle } = UseModal();
     const typingTimeout = React.useRef<any>(0);
     const page = Number(queryString.parse(location.search).page) || 1;
-    const history = useHistory();
+    const navigate = useNavigate();
     const { data, loading, error, pagination, handleGetUploadMusic, handleDeleteMusic, handleSearchMusicUploads } =
         UseUploadMusic();
     // useEffect
@@ -32,7 +32,7 @@ const UploadMusic = ({ location }: any) => {
     const onChangePage = (page: number) => {
         const params = queryString.stringify({ page: page });
         const url = `/upload-music?${params}`;
-        history.push(url);
+        navigate(url);
     };
 
     const onSearchMusicUpload = (value: any) => {

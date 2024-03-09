@@ -1,6 +1,6 @@
 import React from "react";
 import clsx from "clsx";
-import { useHistory } from "react-router";
+import { useNavigate } from "react-router-dom";
 
 import { UseAccount } from "hooks";
 import { UploadMusic, Avatar, Login, Notification } from "components";
@@ -11,7 +11,7 @@ interface ProfileUserProps {
 }
 export const ProfileUser = ({ className }: ProfileUserProps) => {
     const { resultAccount, getProfileAPI, handleOnLogOut } = UseAccount();
-    const history = useHistory();
+    const navigate = useNavigate();
 
     React.useEffect(() => {
         getProfileAPI();
@@ -29,7 +29,7 @@ export const ProfileUser = ({ className }: ProfileUserProps) => {
                         {...data}
                         onClick={() => {
                             handleOnLogOut();
-                            history.push("/");
+                            navigate("/");
                         }}
                     />
                 </div>
