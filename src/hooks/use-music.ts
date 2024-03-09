@@ -39,10 +39,15 @@ export const UseMusic = () => {
     // function
     const setTitleWebsite = React.useCallback(() => {
         if (_id_music) {
+            const metaTitle = document.querySelector("meta[name='title']");
+            const ogTitleMeta = document.querySelector("meta[property='og:title']");
             const title = document.querySelector("title") as HTMLElement;
             const icons = document.querySelector("link[rel='icon']") as HTMLElement;
             icons.setAttribute("href", image_music);
             title.innerHTML = name_music;
+            metaTitle?.setAttribute("content", name_music);
+            ogTitleMeta?.setAttribute("content", name_music);
+
             handleOnPauseMusic(true);
         }
     }, [_id_music, handleOnPauseMusic, image_music, name_music]);
