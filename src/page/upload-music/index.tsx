@@ -15,9 +15,10 @@ import { ModalTypeEnum } from "const";
 import { MusicType } from "type";
 import "./style.css";
 import { BsSearch } from "react-icons/bs";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 
-const UploadMusic = ({ location }: any) => {
+const UploadMusic = () => {
+    const location = useLocation();
     const { toggle } = UseModal();
     const typingTimeout = React.useRef<any>(0);
     const page = Number(queryString.parse(location.search).page) || 1;
