@@ -7,20 +7,15 @@ import moment from "moment";
 import "moment/locale/vi";
 
 import { App } from "./App";
-import { store } from "./store";
-import { Provider } from "react-redux";
-import { UseContextProvider } from "contexts/use-context-provider";
 import React from "react";
+import { BrowserRouter } from "react-router-dom";
 moment.locale("vi");
 
 const root = ReactDOM.createRoot(document.getElementById("root") as HTMLElement);
 root.render(
     <React.StrictMode>
-        <Provider store={store}>
-            <UseContextProvider>
-                <App />
-                <Analytics />
-            </UseContextProvider>
-        </Provider>
+        <BrowserRouter>
+            <App />
+        </BrowserRouter>
     </React.StrictMode>
 );
