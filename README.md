@@ -4,7 +4,7 @@
 
 #### `URL`: <https://api-kaito-music.vercel.app/api>
 
-#### Params default: `_limit=20&_page=1`
+#### `Params` default: `_limit=20&_page=1`
 
 ### `Trending` (`method: GET`): "URL/music/trending?`Params`"
 
