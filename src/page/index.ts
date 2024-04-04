@@ -1,9 +1,9 @@
 import { lazy } from "react";
 
-const HomePage = lazy(() => import("../components/home-page/home"));
-const Favorite = lazy(() => import("./favorite"));
-const ListenedSong = lazy(() => import("./listened-song"));
-const UploadMusic = lazy(() => import("./upload-music"));
+export const HomePage = lazy(() => import("../components/home-page/home"));
+export const Favorite = lazy(() => import("./favorite"));
+export const ListenedSong = lazy(() => import("./listened-song"));
+export const UploadMusic = lazy(() => import("./upload-music"));
 
 const Page = [
     {

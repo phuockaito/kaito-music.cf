@@ -1,5 +1,4 @@
 import clsx from "clsx";
-import { BrowserRouter, Routes } from "react-router-dom";
 
 import { ModalComponent } from "modal";
 import { UseContextControllers } from "contexts";
@@ -8,12 +7,14 @@ import RouterControllers from "page/router-controllers";
 import { Header, Menu, MusicControl, WrapperPlaylist, WrapperComment } from "components";
 import { Section } from "elements";
 import { WrapperVideo } from "layouts";
+import { store } from "store";
+import { Provider } from "react-redux";
+import { UseContextProvider } from "contexts/use-context-provider";
 
-export const App = () => {
+const RootApp = () => {
     const { dropdownMenu } = UseContextControllers();
-
     return (
-        <BrowserRouter>
+        <>
             <Section className="w-full h-full">
                 <Header />
                 <Menu />
@@ -28,6 +29,16 @@ export const App = () => {
             </Section>
             <ModalComponent />
             <WrapperVideo />
-        </BrowserRouter>
+        </>
+    );
+};
+
+export const App = () => {
+    return (
+        <Provider store={store}>
+            <UseContextProvider>
+                <RootApp />
+            </UseContextProvider>
+        </Provider>
     );
 };

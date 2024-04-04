@@ -41,7 +41,6 @@ export const UseMusic = () => {
     const handleOnPlaylist = (data: onPlaylistType) => dispatch(onPlaylist(data));
     const handleAddIdPlaylist = (id_playList: string) => dispatch(addIdPlaylist(id_playList));
     // function
-    console.log({ searchParams });
 
     const setTitleWebsite = React.useCallback(() => {
         if (_id_music) {
