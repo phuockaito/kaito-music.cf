@@ -1,15 +1,22 @@
 import React from "react";
-import { useAppSelector, UsePlayHistory, UseMusic } from "hooks";
+import { useAppSelector, UsePlayHistory, UseMusic, UseComment } from "hooks";
 import { musicStore } from "features";
 import { MusicType } from "type";
+import { useLocation } from "react-router-dom";
+import queryString from 'query-string';
+import musicAPI from "api/api-music";
 
 const UseContext = React.createContext(null);
 
 const UseContextProvider = ({ children }: any) => {
+    const { search } = useLocation();
+    const { handleOnChooseMusic, handleOnAudio } = UseMusic();
+    const query = queryString.parse(search);
     const { getMusicByIdAPI } = UseMusic();
     const { postPlayHistoryAPI } = UsePlayHistory();
     const resultMusic = useAppSelector(musicStore);
     const { _id_music } = resultMusic;
+    const { handleGetComments } = UseComment();
     // Create
     const [videoClip, setVideoClip] = React.useState({ isOpen: false, linkMv: "" });
     const [openSearch, setOpenSearch] = React.useState<boolean>(false);
@@ -46,6 +53,22 @@ const UseContextProvider = ({ children }: any) => {
             }
         })();
     }, [postPlayHistoryAPI, _id_music, getMusicByIdAPI]);
+
+    React.useEffect(() => {
+
+        (async () => {
+            try {
+                if (query?.query) {
+                    const music = await musicAPI.getMusicName(query?.query as string);
+                    handleGetComments({ _id: music.data._id, _limit: 7, _page: 1 });
+                    setMusicPlay(music.data);
+                    handleOnChooseMusic(music.data);
+                    handleOnAudio(music.data.src_music);
+                }
+            } catch (_) { }
+        })()
+    }, []);
+
 
     const state: any = {
         isSearch: [openSearch, setOpenSearch],

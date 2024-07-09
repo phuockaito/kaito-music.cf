@@ -24,7 +24,7 @@ export const CenterControl = ({ src_music }: CenterControlProps) => {
     const { index, audio, playing } = resultMusic;
     // create state
     const [loop, setLoop] = React.useState<boolean>(false);
-    const audioRef = React.useRef<any>(null);
+    const audioRef = React.useRef<any>(src_music);
     const [duration, setDuration] = React.useState<number>(0);
     const [currentTime, setCurrentTime] = React.useState<number>(0);
     const [isRandom, setIsRandom] = React.useState<boolean>(false);
@@ -66,7 +66,7 @@ export const CenterControl = ({ src_music }: CenterControlProps) => {
             handleOnPauseMusic(false);
         }
     }, [audio, handleOnPauseMusic, isOpen]);
-
+    if (!src_music) return <></>
     return (
         <>
             <audio
