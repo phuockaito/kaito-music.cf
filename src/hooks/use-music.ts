@@ -24,7 +24,7 @@ export const UseMusic = () => {
     const resultMusic = useAppSelector(musicStore);
     //create store
     const { data, _id_music, index, playing, dropdownMusic, dataRandom, audio } = resultMusic;
-    const { image_music, name_music, favorite, view } = data;
+    const { image_music, name_music, favorite, view, slug_name_music } = data;
     // api dispatch
     const dispatch = useAppDispatch();
     const getMusicByIdAPI = React.useCallback(
@@ -45,14 +45,18 @@ export const UseMusic = () => {
     const setTitleWebsite = React.useCallback(() => {
         if (_id_music) {
             const metaTitle = document.querySelector("meta[name='title']");
+            const URL = document.querySelector("meta[property='og:url']");
             const ogTitleMeta = document.querySelector("meta[property='og:title']");
             const title = document.querySelector("title") as HTMLElement;
             const icons = document.querySelector("link[rel='icon']") as HTMLElement;
             icons.setAttribute("href", image_music);
             title.innerHTML = name_music;
             metaTitle?.setAttribute("content", name_music);
+            URL?.setAttribute("content", `https://kaito-music.vercel.app/?query=${slug_name_music}`);
             ogTitleMeta?.setAttribute("content", name_music);
-
+            setSearchParams({
+                query: slug_name_music
+            })
             handleOnPauseMusic(true);
         }
     }, [_id_music, handleOnPauseMusic, image_music, name_music, searchParams]);
