@@ -90,20 +90,49 @@ export const Menu = () => {
                     </div>
                     <Heading5 title="Danh sách playlist" className="uppercase text-[#dfe6eb] my-4" />
                     <PlaylistsAlbums />
-                    <div className="mt-4">
-                        <a
-                            href="https://drive.google.com/file/d/1stfq1eOHtFJKxpSr387YAtF_nBmDVx0p/view?usp=sharing"
-                            target="_blank"
-                            rel="noreferrer"
-                            className="flex items-center justify-center gap-2 mb-0"
-                        >
-                            <p className="mb-0 text-lg text-yellow-300">Download Android</p>
-
-                            <Image
-                                imageClassName="w-8 h-8"
-                                src="https://res.cloudinary.com/phuockaito/image/upload/v1665568602/banner/732208_pblqlf.png"
-                            />
-                        </a>
+                    <div className="mt-3 space-y-4">
+                        <div>
+                            <a
+                                href="https://drive.google.com/file/d/1stfq1eOHtFJKxpSr387YAtF_nBmDVx0p/view?usp=sharing"
+                                target="_blank"
+                                rel="noreferrer"
+                                className="flex items-center justify-start gap-2 mb-0"
+                            >
+                                <img
+                                    className="w-6 h-6"
+                                    src="https://res.cloudinary.com/phuockaito/image/upload/v1665568602/banner/732208_pblqlf.png"
+                                />
+                                <p className="mb-0 text-base text-yellow-300">Download Android</p>
+                            </a>
+                        </div>
+                        <div>
+                            <a
+                                href="https://zalo.me/s/1409020084206052512"
+                                target="_blank"
+                                rel="noreferrer"
+                                className="flex items-center justify-start gap-2 mb-0"
+                            >
+                                <img
+                                    className="w-6 h-6"
+                                    src="/icon-zalo.svg"
+                                />
+                                <p className="mb-0 text-base text-yellow-300">Zalo Mini App</p>
+                            </a>
+                        </div>
+                        <div>
+                            <a
+                                href="https://github.com/phuockaito/kaito-music.cf"
+                                target="_blank"
+                                rel="noreferrer"
+                                className="flex items-center justify-start gap-2 mb-0"
+                            >
+                                <img
+                                    className="w-6 h-6"
+                                    src="/icon-github.png"
+                                />
+                                <p className="mb-0 text-base text-yellow-300">Github</p>
+                            </a>
+                        </div>
                     </div>
                 </WrapperScroll>
             </div>

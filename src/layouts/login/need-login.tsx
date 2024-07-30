@@ -30,7 +30,7 @@ export const NeedLogin = ({
         <div className={clsx("content-center", className)}>
             {isContent && (
                 <Heading5
-                    title="Đăng nhập để khám phá những playlist dành riêng cho chính bạn."
+                    title="Playlist dành riêng cho chính bạn."
                     className="mb-2 text-white"
                 />
             )}
