@@ -52,7 +52,7 @@ export const UseMusic = () => {
             icons.setAttribute("href", image_music);
             title.innerHTML = name_music;
             metaTitle?.setAttribute("content", name_music);
-            URL?.setAttribute("content", `https://kaito-music.vercel.app/?query=${slug_name_music}`);
+            URL?.setAttribute("content", `https://www.kaitomusic.online/?query=${slug_name_music}`);
             ogTitleMeta?.setAttribute("content", name_music);
             setSearchParams({
                 query: slug_name_music
