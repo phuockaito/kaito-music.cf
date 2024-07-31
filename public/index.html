@@ -46,21 +46,28 @@
         gtag('config', 'G-7L4JFE1MWD');
     </script>
     <meta name="google-site-verification" content="B4GmSRtEGjC6npIeRJh0l_OY-tF9wHEDU5qbBdavY3I" />
-    <script src="https://www.gstatic.com/firebasejs/10.8.1/firebase-app-compat.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/10.8.1/firebase-firestore-compat.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/10.8.1/firebase-auth-compat.js"></script>
-    <script>
-        const firebaseApp = firebase.initializeApp({
+    <script type="module">
+        // Import the functions you need from the SDKs you need
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.4/firebase-app.js";
+        import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.12.4/firebase-analytics.js";
+        // TODO: Add SDKs for Firebase products that you want to use
+        // https://firebase.google.com/docs/web/setup#available-libraries
+
+        // Your web app's Firebase configuration
+        // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+        const firebaseConfig = {
             apiKey: "AIzaSyDwuKXEXSpzOU-HwCf-mjUm8ZU-SVw3OVY",
-            authDomain: "kaito-music.vercel.app",
+            authDomain: "kaito-music-326213.firebaseapp.com",
             projectId: "kaito-music-326213",
             storageBucket: "kaito-music-326213.appspot.com",
             messagingSenderId: "147148304416",
             appId: "1:147148304416:web:18d53943e9a02aeec98c45",
             measurementId: "G-ZB24F4XQMG"
-        });
-        const db = firebaseApp.firestore();
-        const auth = firebaseApp.auth();
+        };
+
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const analytics = getAnalytics(app);
     </script>
 </head>
 
