@@ -1,10 +1,9 @@
 import React from "react";
 import clsx from "clsx";
 
-import { GoogleLogin } from "react-google-login";
 import { UseAccount } from "hooks";
-import { CLINT_ID_GOOGLE } from "const";
 import { BiLoader } from "react-icons/bi";
+import { useGoogleLogin } from '@react-oauth/google';
 
 interface LoginGoogleProps {
     className?: string;
@@ -13,25 +12,21 @@ interface LoginGoogleProps {
 
 export const LoginGoogle = ({ elements, className }: LoginGoogleProps) => {
     const { responseGoogle, loadingGoogle } = UseAccount();
+    const login = useGoogleLogin({
+        onSuccess: tokenResponse => responseGoogle(tokenResponse),
+    });
+
     return (
-        <GoogleLogin
-            className={clsx(className)}
-            clientId={CLINT_ID_GOOGLE}
-            onSuccess={responseGoogle}
-            cookiePolicy={"single_host_origin"}
-            icon={false}
-            buttonText=""
-            render={(renderProps) => (
-                <>
-                    {loadingGoogle ? (
-                        <BiLoader className="animate-spin m-auto text-white" size="1.5em" />
-                    ) : (
-                        <div onClick={renderProps.onClick} className={clsx("relative", className)}>
-                            {elements}
-                        </div>
-                    )}
-                </>
+        <p
+            onClick={() => login()}
+        >
+            {loadingGoogle ? (
+                <BiLoader className="m-auto text-white animate-spin" size="1.5em" />
+            ) : (
+                <div className={clsx("relative", className)}>
+                    {elements}
+                </div>
             )}
-        />
+        </p>
     );
 };

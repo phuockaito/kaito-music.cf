@@ -30,8 +30,8 @@ export const UseAccount = () => {
     const getProfileAPI = React.useCallback(() => xs && dispatch(getProfile()), [dispatch]);
 
     const responseGoogle = (response: any) => {
-        const { tokenId } = response;
-        if (tokenId) loginGoogleAPI(tokenId);
+        const { access_token } = response;
+        if (access_token) loginGoogleAPI(access_token);
     };
 
     return {
