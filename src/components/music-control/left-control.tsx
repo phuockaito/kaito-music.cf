@@ -23,7 +23,7 @@ export const LeftControl = ({ playing, imageMusic, nameSinger, nameMusic }: Left
             <Image
                 src={imageMusic}
                 className={clsx("group_music_control__image w-16 h-16", playing && "ld ld-breath")}
-                imageClassName="group_music_control__image"
+                imageClassName="group_music_control__image w-full h-full !object-fill"
             />
 
             <div className="flex-1 text-left group_music_control__title">
