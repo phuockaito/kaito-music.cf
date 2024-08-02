@@ -4,7 +4,7 @@ interface ListLoadingProps {
     className?: string;
 }
 export const ListLoading = ({
-    items = 20,
+    items = 21,
     className = "grid gap-x-2 gap-y-1 grid-template-columns",
 }: ListLoadingProps) => {
     return (

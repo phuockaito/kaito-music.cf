@@ -4,19 +4,19 @@ interface CardLoadingProps {
     className?: string;
 }
 
-export const CardLoading = ({ items = 6, className = "wrapper__loading" }: CardLoadingProps) => {
+export const CardLoading = ({ items = 5, className = "wrapper__loading" }: CardLoadingProps) => {
     return (
         <div className={className}>
             {[...Array(items)].map((_, i) => (
                 <div className="loading__card" key={i}>
-                    <div className="header h-32">
+                    <div className="h-32 header">
                         <div className="img" />
                     </div>
                     <div className="description">
-                        <div className="line my-2" />
-                        <div className="line my-2" />
-                        <div className="line my-2" />
-                        <div className="line my-2" />
+                        <div className="my-2 line" />
+                        <div className="my-2 line" />
+                        <div className="my-2 line" />
+                        <div className="my-2 line" />
                     </div>
                 </div>
             ))}
