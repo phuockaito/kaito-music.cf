@@ -8,6 +8,7 @@ import { UseUploadMusic, UseModal } from "hooks";
 import { ListLoading, ItemList } from "layouts";
 import { Heading3, Heading6 } from "elements";
 
+import { AiOutlineLoading } from "react-icons/ai";
 import { AiFillDelete } from "react-icons/ai";
 import { FiEdit } from "react-icons/fi";
 
@@ -62,13 +63,21 @@ const UploadMusic = () => {
                         onFinish={onSearchMusicUpload}
                     >
                         <Form.Item>
-                            <button type="submit" className="flex px-2">
-                                <BsSearch
-                                    size={24}
-                                    color="#ffff"
-                                    className="pr-2 border-r border-white"
-                                />
-                            </button>
+                            {
+                                loading
+                                    ? <div
+                                        className="pr-1 animate-spin"
+                                    >
+                                        <AiOutlineLoading color="#fff" size={18} />
+                                    </div>
+                                    : <button type="submit" className="flex px-2">
+                                        <BsSearch
+                                            size={24}
+                                            color="#ffff"
+                                            className="pr-2 border-r border-white"
+                                        />
+                                    </button>
+                            }
                         </Form.Item>
                         <StyledInput
                             name="search"
