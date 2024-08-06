@@ -60,6 +60,15 @@
 
 -   params: { "\_id": ? }
 
+### `Get list favorite` (`method: GET`): "`URL`/favorite/list"
+
+-   params: { "\_id_music": ? }
+
+### `Get favorite account` (`method: GET`): "`URL`/favorite/account"
+
+-   params: { "\_id_music": ? }
+-   Authorization: Bearer `accessToken`
+
 ### `Get Music Name` (`method: GET`): "`URL`/music/get-music-name"
 
 -   params: { "\_name": ? }
