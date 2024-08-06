@@ -58,32 +58,29 @@ const UploadMusic = () => {
                             display: "flex",
                             width: "100%",
                         }}
+                        size="large"
                         onFinish={onSearchMusicUpload}
                     >
-                        <StyledInput>
-                            <button type="submit" className="flex">
+                        <Form.Item>
+                            <button type="submit" className="flex px-2">
                                 <BsSearch
-                                    style={{
-                                        fontSize: "1.2rem",
-                                        borderRight: "1px solid #ffff",
-                                        paddingRight: "5px",
-                                        color: "#ffff",
-                                    }}
+                                    size={24}
+                                    color="#ffff"
+                                    className="pr-2 border-r border-white"
                                 />
                             </button>
-                        </StyledInput>
-                        <Form.Item>
-                            <StyledInput name="search">
-                                <Input
-                                    allowClear
-                                    placeholder="Nhập tên bài hát..."
-                                    style={{
-                                        padding: "0px 10px",
-                                    }}
-                                    bordered={false}
-                                />
-                            </StyledInput>
                         </Form.Item>
+                        <StyledInput
+                            name="search"
+                            className="!w-full"
+                        >
+                            <Input
+                                className="!pl-0"
+                                allowClear
+                                placeholder="Nhập tên bài hát..."
+                                bordered={false}
+                            />
+                        </StyledInput>
                     </StyledForm>
                 </div>
             </div>
@@ -151,15 +148,18 @@ const UploadMusic = () => {
                             ))}
                         </div>
                     </div>
-                    <div className="group_pagination">
-                        <StylePagination
-                            onChange={onChangePage}
-                            total={pagination._total}
-                            defaultPageSize={36}
-                            current={page}
-                            defaultCurrent={1}
-                        />
-                    </div>
+                    {
+                        pagination._total > 0 &&
+                        <div className="group_pagination">
+                            <StylePagination
+                                onChange={onChangePage}
+                                total={pagination._total}
+                                defaultPageSize={36}
+                                current={page}
+                                defaultCurrent={1}
+                            />
+                        </div>
+                    }
                 </div>
             )}
         </div>
