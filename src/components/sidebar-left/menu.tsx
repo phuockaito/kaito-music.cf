@@ -12,17 +12,25 @@ import { AiOutlineMenuUnfold } from "react-icons/ai";
 
 import { musicMenu, homeMenu } from "const";
 import "./style.css";
+import queryString from 'query-string';
 
 export const Menu = () => {
     let { pathname } = useLocation();
     const navigate = useNavigate();
+    const { search } = useLocation();
+    const query = queryString.parse(search);
 
     const { dropdownMenu } = UseContextControllers();
     const { open, setOpen } = useToggle();
     const { accessToken } = UseAccount();
 
     const handlePushPage = (path: string) => {
-        navigate(path);
+        navigate(`${path}`);
+        if (query?.query) {
+            navigate(`${path}?query=${query?.query}`);
+        } else {
+            navigate(path);
+        }
         setOpen(false);
     };
 

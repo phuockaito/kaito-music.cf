@@ -10,8 +10,8 @@ const UseContext = React.createContext(null);
 
 const UseContextProvider = ({ children }: any) => {
     const { search } = useLocation();
-    const { handleOnChooseMusic, handleOnAudio } = UseMusic();
     const query = queryString.parse(search);
+    const { handleOnChooseMusic, handleOnAudio } = UseMusic();
     const { getMusicByIdAPI } = UseMusic();
     const { postPlayHistoryAPI } = UsePlayHistory();
     const resultMusic = useAppSelector(musicStore);
