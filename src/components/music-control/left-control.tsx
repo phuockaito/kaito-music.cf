@@ -27,17 +27,17 @@ export const LeftControl = ({ playing, imageMusic, nameSinger, nameMusic }: Left
             />
 
             <div className="flex-1 text-left group_music_control__title">
-                <Heading5 title={nameMusic} className="mb-0 text-white truncate whitespace-normal" />
-                <Heading6 title={nameSinger} className="mb-0 truncate text-[#01aaed]" />
+                <Heading5 title={nameMusic} className="mb-0 text-white truncate whitespace-normal line-clamp-1" />
+                <Heading6 title={nameSinger} className="mb-0 truncate text-[#01aaed] line-clamp-1" />
                 {musicPlay && (
                     <div className="flex gap-3">
                         <div className="flex text-[#a5a6c4] items-center rounded-b-[0.35rem]">
-                            <p className="m-0 text-sm font-semibold truncate">
+                            <p className="m-0 text-sm font-semibold truncate line-clamp-1">
                                 {formatView.format(musicPlay.view)} <span>view</span>
                             </p>
                         </div>
                         <div className="flex text-[#a5a6c4] items-center rounded-b-[0.35rem]">
-                            <p className="m-0 text-sm font-semibold truncate">
+                            <p className="m-0 text-sm font-semibold truncate line-clamp-1">
                                 {formatView.format(musicPlay.favorite)} <span>favorite</span>
                             </p>
                         </div>
