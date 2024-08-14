@@ -4,7 +4,6 @@ import { useLocation, useNavigate } from "react-router-dom";
 
 import { WrapperScroll, BeforeApter, PlaylistsAlbums, NeedLogin } from "layouts";
 import { Heading5 } from "elements";
-import { Image } from "layouts";
 
 import { useToggle, UseAccount } from "hooks";
 import { UseContextControllers } from "contexts";
@@ -12,25 +11,17 @@ import { AiOutlineMenuUnfold } from "react-icons/ai";
 
 import { musicMenu, homeMenu } from "const";
 import "./style.css";
-import queryString from 'query-string';
 
 export const Menu = () => {
     let { pathname } = useLocation();
     const navigate = useNavigate();
-    const { search } = useLocation();
-    const query = queryString.parse(search);
 
     const { dropdownMenu } = UseContextControllers();
     const { open, setOpen } = useToggle();
     const { accessToken } = UseAccount();
 
     const handlePushPage = (path: string) => {
-        navigate(`${path}`);
-        if (query?.query) {
-            navigate(`${path}?query=${query?.query}`);
-        } else {
-            navigate(path);
-        }
+        navigate(path);
         setOpen(false);
     };
 

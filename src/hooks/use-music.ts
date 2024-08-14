@@ -16,10 +16,8 @@ import {
 } from "features";
 
 import { ParamsUrl, IndexMusicType, MusicType, onPlaylistType } from "type";
-import { useSearchParams } from "react-router-dom";
 
 export const UseMusic = () => {
-    const [searchParams, setSearchParams] = useSearchParams();
 
     const resultMusic = useAppSelector(musicStore);
     //create store
@@ -54,12 +52,9 @@ export const UseMusic = () => {
             metaTitle?.setAttribute("content", name_music);
             URL?.setAttribute("content", `https://www.kaitomusic.online/?query=${slug_name_music}`);
             ogTitleMeta?.setAttribute("content", name_music);
-            setSearchParams({
-                query: slug_name_music
-            })
             handleOnPauseMusic(true);
         }
-    }, [_id_music, handleOnPauseMusic, image_music, name_music, searchParams]);
+    }, [_id_music, handleOnPauseMusic, image_music, name_music]);
 
     const handlePausePlayClick = React.useCallback(() => {
         if (playing) audio?.pause();
