@@ -1,11 +1,11 @@
 import ReactDOM from "react-dom/client";
-import { Analytics } from "@vercel/analytics/react";
 import { GoogleOAuthProvider } from '@react-oauth/google';
 import "./styles/index.css";
 import { CLINT_ID_GOOGLE } from "const";
 
 import moment from "moment";
 import "moment/locale/vi";
+import 'react-lazy-load-image-component/src/effects/blur.css';
 
 import { App } from "./App";
 import React from "react";

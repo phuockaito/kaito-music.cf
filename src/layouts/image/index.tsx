@@ -1,7 +1,7 @@
 import { ReactNode } from "react";
 import clsx from "clsx";
+
 import { LazyLoadImage } from "react-lazy-load-image-component";
-import "react-lazy-load-image-component/src/effects/blur.css";
 
 interface ImageProps {
     className?: string;
@@ -24,6 +24,11 @@ export const Image = ({
     return (
         <div className={clsx("relative", className)} onClick={onClick}>
             <LazyLoadImage
+                wrapperProps={{
+                    style: {
+                        transitionDelay: "0.4s",
+                    },
+                }}
                 effect="blur"
                 src={src}
                 alt={alt}
