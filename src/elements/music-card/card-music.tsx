@@ -24,9 +24,9 @@ export const CardMusic = ({ className, loading, title, titleClassName = "text-wh
                 <LazyLoadComponent>
                     <WrapperCarousel
                         snapMode="snap"
-                        // autoplay
-                        // loop
-                        // time={5000}
+                        autoplay
+                        loop
+                        time={5000}
                         slidesPerView={6}
                         spacingPerView={10}
                         responsive={responsiveCarousel}>
