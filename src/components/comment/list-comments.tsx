@@ -76,7 +76,7 @@ export const ListComments = ({
                     <div>
                         <div
                             className="text-[#7f7f9c] break-all my-2 text-base"
-                            dangerouslySetInnerHTML={{ __html: content.replace(/(\r\n|\n|\r)/gm, "<br />") }}
+                            dangerouslySetInnerHTML={{ __html: content?.replace(/(\r\n|\n|\r)/gm, "<br />") }}
                         />
                         <div className="flex items-center space-x-4">
                             <Heading6 className="text-[#737678] mb-0" title={moment(createdAt).fromNow()} />
