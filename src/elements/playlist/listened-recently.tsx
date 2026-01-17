@@ -17,7 +17,7 @@ export const ListenedRecently = ({ className, children }: ListenedRecentlyProps)
     const { resultAccountFavorite } = UseContextControllers();
 
     React.useEffect(() => {
-        if (!data.length) HandelGetLayHistoryAPI({ _limit: 20 });
+        if (!data.length) HandelGetLayHistoryAPI({ _limit: 21 });
     }, [HandelGetLayHistoryAPI, error, data.length]);
 
     React.useEffect(() => {

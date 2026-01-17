@@ -11,7 +11,7 @@ export const UserNewMusic = () => {
     const getNewMusicApi = React.useCallback((params: ParamsUrl) => dispatch(getNewMusic(params)), [dispatch]);
     // useEffect
     React.useEffect(() => {
-        if (!data.length) getNewMusicApi({ _limit: 20 });
+        if (!data.length) getNewMusicApi({ _limit: 21 });
     }, [error, data.length, getNewMusicApi]);
 
     return { data, loading };

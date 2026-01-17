@@ -1,6 +1,7 @@
 import React from "react";
 import clsx from "clsx";
 import InfiniteScroll from "react-infinite-scroll-component";
+import { FaAnglesRight } from "react-icons/fa6";
 
 import { UseComment, UseMusic } from "hooks";
 
@@ -8,15 +9,12 @@ import { Heading6, FormComment } from "elements";
 import { BeforeApter, WrapperScroll, ListLoading } from "layouts";
 import { ListComments } from "./list-comments";
 
-import { HiOutlineArrowLeft } from "react-icons/hi";
 import { AiOutlineComment } from "react-icons/ai";
 import { MdFavorite } from "react-icons/md";
 import { BiShow } from "react-icons/bi";
 
-const formatView = new Intl.NumberFormat("en-US", {
-    notation: "compact",
-    compactDisplay: "short",
-    maximumFractionDigits: 1,
+const formatView = new Intl.NumberFormat("de-DE", {
+    notation: "standard",
 });
 export const WrapperComment = () => {
     const {
@@ -59,8 +57,8 @@ export const WrapperComment = () => {
             >
                 <div className="w-full h-full">
                     <div className="border-b-2 border-[#2f2f3a] p-3 min-h-[70px]">
-                        <div className="flex items-center justify-between">
-                            <HiOutlineArrowLeft
+                        <div className="flex justify-between items-center">
+                            <FaAnglesRight
                                 className="text-white rounded-full cursor-pointer"
                                 size="1.2em"
                                 onClick={() => handleCloseComment()}
@@ -89,7 +87,7 @@ export const WrapperComment = () => {
                                     next={fetchMoreData}
                                     hasMore={data.length === pagination._total ? false : true}
                                     loader={
-                                        <ListLoading items={3} className="grid gap-4 my-4 grid-template-columns-4" />
+                                        <ListLoading items={3} className="grid gap-4 my-4 grid-template-columns-3" />
                                     }
                                     scrollableTarget="scrollableDiv"
                                 >
@@ -109,7 +107,7 @@ export const WrapperComment = () => {
                             ) : (
                                 <Heading6
                                     title="Hiện không có bình luận nào"
-                                    className="absolute text-white left-1/3 top-1/2"
+                                    className="absolute top-1/2 left-1/3 text-white"
                                 />
                             )}
                         </WrapperScroll>

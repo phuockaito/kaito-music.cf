@@ -17,7 +17,7 @@ const ListenedSong = () => {
     };
 
     React.useEffect(() => {
-        if (!pagination._total || previousPage.current < page) HandelGetLayHistoryAPI({ _limit: 20, _page: page });
+        if (!pagination._total || previousPage.current < page) HandelGetLayHistoryAPI({ _limit: 21, _page: page });
     }, [page, error, HandelGetLayHistoryAPI, pagination._total]);
 
     return !pagination._total ? (

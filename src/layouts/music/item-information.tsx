@@ -14,7 +14,7 @@ interface ItemInformationProps {
 }
 
 export const ItemInformation = ({
-    className = "w-full px-2 py-3",
+    className = "px-2 py-3 w-full",
     nameMusic,
     nameMusicClassName,
     view,
@@ -22,29 +22,27 @@ export const ItemInformation = ({
     nameSinger,
     classNameView = "space-y-1",
 }: ItemInformationProps) => {
-    const formatView = new Intl.NumberFormat("en-US", {
-        notation: "compact",
-        compactDisplay: "short",
-        maximumFractionDigits: 1,
+    const formatView = new Intl.NumberFormat("de-DE", {
+        notation: "standard",
     });
     return (
         <div className={className}>
             <div>
-                <Heading6 title={nameMusic} className={clsx("text-white p-0 m-0 truncate", nameMusicClassName)} />
+                <Heading6 title={nameMusic} className={clsx("p-0 m-0 text-white truncate", nameMusicClassName)} />
                 <p className="text-[#01aaed] m-0 p-0 truncate text-sm font-semibold">{nameSinger}</p>
             </div>
             <div className={classNameView}>
                 {view && (
                     <div className="flex text-[#a5a6c4] items-center rounded-b-[0.35rem]">
-                        <BiShow className="w-4 h-4 mr-2" />
-                        <p className="m-0 text-sm font-semibold truncate">{view && formatView.format(view)} view</p>
+                        <BiShow className="mr-2 w-4 h-4" />
+                        <p className="m-0 text-sm font-semibold truncate">{view && formatView.format(view)} Luợt xem</p>
                     </div>
                 )}
                 {favorite && (
                     <div className="flex text-[#a5a6c4] items-center rounded-b-[0.35rem]">
-                        <MdFavoriteBorder className="w-4 h-4 mr-2" />
+                        <MdFavoriteBorder className="mr-2 w-4 h-4" />
                         <p className="m-0 text-sm font-semibold truncate">
-                            {favorite && formatView.format(favorite)} favorite
+                            {favorite && formatView.format(favorite)} Yêu thích
                         </p>
                     </div>
                 )}

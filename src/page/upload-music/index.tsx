@@ -51,7 +51,7 @@ const UploadMusic = () => {
 
     return (
         <div>
-            <div className="flex flex-col justify-between gap-2 mb-4 sm:flex-row sm:gap-0">
+            <div className="flex flex-col gap-2 justify-between mb-4 sm:flex-row sm:gap-0">
                 <Heading3 title="Danh Sách Tải Lên" className="text-white" />
                 <div className="w-full max-w-xs">
                     <StyledForm
@@ -80,7 +80,7 @@ const UploadMusic = () => {
                 </div>
             </div>
             {loading ? (
-                <ListLoading items={20} className="grid grid-cols-1 gap-2 lg:grid-cols-2 2xl:grid-cols-3" />
+                <ListLoading items={21} className="grid grid-cols-1 gap-2 lg:grid-cols-2 2xl:grid-cols-3" />
             ) : (
                 <div className="group__upload__music">
                     <div>

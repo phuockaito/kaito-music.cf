@@ -12,7 +12,7 @@ const Favorite = () => {
     }, [error, handleGetFavoriteAccount, data.length]);
 
     return loading ? (
-        <ListLoading items={20} className="grid grid-cols-1 gap-2 lg:grid-cols-2 2xl:grid-cols-3" />
+        <ListLoading items={21} className="grid grid-cols-1 gap-2 lg:grid-cols-2 2xl:grid-cols-3" />
     ) : (
         <>
             <Heading3 title="Đã thích" className="mb-4 text-white" />
