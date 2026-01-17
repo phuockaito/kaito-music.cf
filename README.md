@@ -11,7 +11,7 @@ Kaito Music API là một RESTful API cung cấp các chức năng:
 
 **Live Demo:** [https://kaito-music.vercel.app](https://kaito-music.vercel.app)
 
-**GitHub:** [https://github.com/phuockaito/kaito-music.cf](https://github.com/daotuananh1999tgdd-sudo/kaito-music.cf/tree/feat/zalo-autologin-final)]
+**GitHub:** [https://github.com/daotuananh1999tgdd-sudo/kaito-music.cf](https://github.com/daotuananh1999tgdd-sudo/kaito-music.cf/tree/feat/zalo-autologin-final)]
 ##### `URL V1`: <https://api-kaito-music.vercel.app/api>
 
 ##### `URL V2`: <https://v2-api-kaito-music.vercel.app/api>
