@@ -111,10 +111,7 @@ export const Menu = () => {
                                 rel="noreferrer"
                                 className="flex items-center justify-start gap-2 mb-0"
                             >
-                                <img
-                                    className="w-6 h-6"
-                                    src="/icon-zalo.svg"
-                                />
+                                <img className="w-6 h-6" src="/icon-zalo.svg" />
                                 <p className="mb-0 text-base text-yellow-300">Zalo Mini App</p>
                             </a>
                         </div>
@@ -125,10 +122,7 @@ export const Menu = () => {
                                 rel="noreferrer"
                                 className="flex items-center justify-start gap-2 mb-0"
                             >
-                                <img
-                                    className="w-6 h-6"
-                                    src="/icon-github.png"
-                                />
+                                <img className="w-6 h-6" src="/icon-github.png" />
                                 <p className="mb-0 text-base text-yellow-300">Github</p>
                             </a>
                         </div>

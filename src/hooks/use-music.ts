@@ -18,7 +18,6 @@ import {
 import { ParamsUrl, IndexMusicType, MusicType, onPlaylistType } from "type";
 
 export const UseMusic = () => {
-
     const resultMusic = useAppSelector(musicStore);
     //create store
     const { data, _id_music, index, playing, dropdownMusic, dataRandom, audio } = resultMusic;

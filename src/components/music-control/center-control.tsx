@@ -66,7 +66,7 @@ export const CenterControl = ({ src_music }: CenterControlProps) => {
             handleOnPauseMusic(false);
         }
     }, [audio, handleOnPauseMusic, isOpen]);
-    if (!src_music) return <></>
+    if (!src_music) return <></>;
     return (
         <>
             <audio

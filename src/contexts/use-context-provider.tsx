@@ -60,7 +60,6 @@ const UseContextProvider = ({ children }: any) => {
     //     })()
     // }, []);
 
-
     const state: any = {
         isSearch: [openSearch, setOpenSearch],
         isMenu: [openMenu, setOpenMenu],

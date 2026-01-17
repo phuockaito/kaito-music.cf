@@ -29,7 +29,8 @@ export const CardMusic = ({ className, loading, title, titleClassName = "text-wh
                         time={5000}
                         slidesPerView={6}
                         spacingPerView={10}
-                        responsive={responsiveCarousel}>
+                        responsive={responsiveCarousel}
+                    >
                         {data.map((item: MusicType, index: number) => (
                             <div className="keen-slider__slide bg-[rgba(33,33,42,255)] rounded-[0.35rem]" key={index}>
                                 <ItemCard

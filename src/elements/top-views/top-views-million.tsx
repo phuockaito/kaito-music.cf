@@ -7,11 +7,5 @@ export const TopViewsMillion = () => {
     React.useEffect(() => {
         if (!dataMillion.length) getTopViewsMillionApi({ _type: "million", _limit: 20 });
     }, [errorMillion]);
-    return (
-        <WrapperItemList
-            data={dataMillion}
-            loading={loadingMillion}
-            title="Top Triệu View"
-        />
-    );
+    return <WrapperItemList data={dataMillion} loading={loadingMillion} title="Top Triệu View" />;
 };
