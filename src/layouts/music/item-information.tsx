@@ -1,6 +1,4 @@
 import { Heading6 } from "elements";
-import { BiShow } from "react-icons/bi";
-import { MdFavoriteBorder } from "react-icons/md";
 import clsx from "clsx";
 
 interface ItemInformationProps {
@@ -34,13 +32,11 @@ export const ItemInformation = ({
             <div className={classNameView}>
                 {view && (
                     <div className="flex text-[#a5a6c4] items-center rounded-b-[0.35rem]">
-                        <BiShow className="mr-2 w-4 h-4" />
                         <p className="m-0 text-sm font-semibold truncate">{view && formatView.format(view)} Luợt xem</p>
                     </div>
                 )}
                 {favorite && (
                     <div className="flex text-[#a5a6c4] items-center rounded-b-[0.35rem]">
-                        <MdFavoriteBorder className="mr-2 w-4 h-4" />
                         <p className="m-0 text-sm font-semibold truncate">
                             {favorite && formatView.format(favorite)} Yêu thích
                         </p>
