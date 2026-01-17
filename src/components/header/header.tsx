@@ -12,6 +12,11 @@ export const Header = () => {
     const { openSearch, setOpenSearch, dropdownMenu, setDropdownMenu } = UseContextControllers();
     const { accessToken } = UseAccount();
     const IconDropdownMenu = dropdownMenu ? RiMenuFoldLine : RiMenuUnfoldLine;
+
+    // demo Zalo user id used for autologin
+    const demoZaloUserId = "0834628537";
+    const autologinPath = `/zalo-autologin?zalo_user=${encodeURIComponent(demoZaloUserId)}`;
+
     return (
         <>
             <div
@@ -28,12 +33,12 @@ export const Header = () => {
                         size="1.5em"
                         onClick={() => setDropdownMenu(!dropdownMenu)}
                     />
-                    <Link to="/">
+                    <Link to={autologinPath} className="ml-4 flex items-center cursor-pointer">
                         <Image
                             src="https://res.cloudinary.com/dycmdfgj3/image/upload/v1664261999/logo-website_vl7wul.png"
-                            imageClassName="w-36 h-full"
-                            className="ml-4"
+                            imageClassName="w-10 h-10"
                         />
+                        <span className="ml-2 text-white text-2xl font-bold">connections</span>
                     </Link>
                 </div>
                 <Search setOpen={() => setOpenSearch(true)} open={openSearch} />
