@@ -1,7 +1,6 @@
 import { MdFavoriteBorder } from "react-icons/md";
 import { MdLibraryMusic } from "react-icons/md";
 import { AiOutlineCloudUpload, AiOutlineHome } from "react-icons/ai";
-import CryptoJS from "crypto-js";
 import Cookies from "js-cookie";
 
 export enum ModalTypeEnum {

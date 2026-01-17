@@ -20,7 +20,7 @@ export const WaitingList = () => {
 
     React.useEffect(() => {
         setListData(dataByIdPlayListLength ? dataByIdPlayList.map((i: any) => ({ ...i.music })) : dataRandom);
-    }, [dataByIdPlayListLength, dataRandomLength]);
+    }, [dataByIdPlayListLength, dataRandomLength, dataByIdPlayList, dataRandom]);
 
     const { message, id_music, account_favorite } = resultAccountFavorite;
 
@@ -33,7 +33,7 @@ export const WaitingList = () => {
                 setListData(newListData);
             }
         }
-    }, [message]);
+    }, [message, id_music, account_favorite, listData]);
 
     return (
         <WrapperScroll className="grid h-full grid-cols-1">

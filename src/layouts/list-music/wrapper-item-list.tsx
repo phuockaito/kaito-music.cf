@@ -15,7 +15,7 @@ export const WrapperItemList = ({ data, loading, title }: WrapperItemListProps) 
         <LazyLoadComponent>
             <div className="my-4">
                 <Heading3 title={title} className="text-white" />
-                <div className="grid grid-cols-1 md:grid-cols-2 2xl:grid-cols-4 xl:grid-cols-3 gap-x-2 gap-y-1">
+                <div className="grid grid-cols-1 gap-y-1 gap-x-2 md:grid-cols-2 xl:grid-cols-3">
                     {data.map((item: MusicType, index: number) => (
                         <ItemList
                             account_favorite={item.account_favorite}

@@ -6,6 +6,6 @@ export const TopViewsBillion = () => {
     const { dataBillion, loadingBillion, errorBillion, getTopViewsBillionApi } = useTopViews();
     React.useEffect(() => {
         if (!dataBillion.length) getTopViewsBillionApi({ _type: "billion" });
-    }, [errorBillion]);
+    }, [errorBillion, dataBillion.length, getTopViewsBillionApi]);
     return <CardMusic loading={loadingBillion} data={dataBillion} title="Top Tỉ View" />;
 };

@@ -1,7 +1,7 @@
 import { OtherDot } from "components";
 import { FavoriteIcon } from "layouts";
 
-import { UsePlaylist, UseComment, UseAccount } from "hooks";
+import { UsePlaylist, UseComment } from "hooks";
 
 import { RiPlayListLine } from "react-icons/ri";
 import { AiOutlineComment } from "react-icons/ai";

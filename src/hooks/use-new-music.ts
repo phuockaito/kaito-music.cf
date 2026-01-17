@@ -8,11 +8,11 @@ export const UserNewMusic = () => {
     const { data, loading, error } = resultNewMusic;
     // api dispatch
     const dispatch = useAppDispatch();
-    const getNewMusicApi = (params: ParamsUrl) => dispatch(getNewMusic(params));
+    const getNewMusicApi = React.useCallback((params: ParamsUrl) => dispatch(getNewMusic(params)), [dispatch]);
     // useEffect
     React.useEffect(() => {
         if (!data.length) getNewMusicApi({ _limit: 21 });
-    }, [error]);
+    }, [error, data.length, getNewMusicApi]);
 
     return { data, loading };
 };

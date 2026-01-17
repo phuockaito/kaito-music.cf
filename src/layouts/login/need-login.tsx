@@ -28,12 +28,7 @@ export const NeedLogin = ({
     const { toggle } = UseModal();
     return login ? (
         <div className={clsx("content-center", className)}>
-            {isContent && (
-                <Heading5
-                    title="Playlist dành riêng cho chính bạn."
-                    className="mb-2 text-white"
-                />
-            )}
+            {isContent && <Heading5 title="Playlist dành riêng cho chính bạn." className="mb-2 text-white" />}
             <div
                 className={clsx(
                     "flex space-x-4 items-center",

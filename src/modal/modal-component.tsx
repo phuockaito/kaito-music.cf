@@ -36,7 +36,7 @@ export const ModalComponent = () => {
 
     React.useEffect(() => {
         toggle({ type: ModalTypeEnum.NULL, title: "" });
-    }, [accessToken]);
+    }, [accessToken, toggle]);
 
     if (!WrapperModal) return null;
 

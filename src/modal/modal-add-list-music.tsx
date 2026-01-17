@@ -46,7 +46,7 @@ const ModalCreatePlaylist = ({ isModalVisible, setIsModalVisible, _id_music }: M
     React.useEffect(() => {
         setIsModalVisible(false);
         createPlaylistForm.resetFields(["nameList"]);
-    }, [data.length]);
+    }, [data.length, setIsModalVisible, createPlaylistForm]);
     return (
         <Modal
             title={<Heading3 title="Tạo playlist mới" className="text-white" />}

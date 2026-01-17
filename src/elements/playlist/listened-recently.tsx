@@ -17,8 +17,8 @@ export const ListenedRecently = ({ className, children }: ListenedRecentlyProps)
     const { resultAccountFavorite } = UseContextControllers();
 
     React.useEffect(() => {
-        if (!data.length) HandelGetLayHistoryAPI({ _limit: 20 });
-    }, [HandelGetLayHistoryAPI, error]);
+        if (!data.length) HandelGetLayHistoryAPI({ _limit: 21 });
+    }, [HandelGetLayHistoryAPI, error, data.length]);
 
     React.useEffect(() => {
         if (data.length) setListData(data);
@@ -35,7 +35,7 @@ export const ListenedRecently = ({ className, children }: ListenedRecentlyProps)
                 setListData(newListData);
             }
         }
-    }, [message]);
+    }, [message, id_music, account_favorite, listData]);
 
     return !accessToken ? (
         <div className="p-4 rounded-[0.35rem] bg-[#01aaed] text-center mt-4">

@@ -1,5 +1,3 @@
-import React from "react";
-
 import { useAppDispatch, useAppSelector } from "hooks";
 import { ParamsUrl } from "type";
 import { TopViewsStore, getTopViewsMillion, getTopViewsBillion } from "features";
