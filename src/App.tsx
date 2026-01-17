@@ -1,44 +1,34 @@
 import clsx from "clsx";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import { ModalComponent } from "modal";
 import { UseContextControllers } from "contexts";
-
-import RouterControllers from "page/router-controllers";
-import { Header, Menu, MusicControl, WrapperPlaylist, WrapperComment } from "components";
-import { Section } from "elements";
+import { Section } from "layouts";
+import { Header, Menu } from "components";
+import ZaloAutoLogin from "page/zalo-autologin";
 import { WrapperVideo } from "layouts";
-import { store } from "store";
-import { Provider } from "react-redux";
-import { UseContextProvider } from "contexts/use-context-provider";
 
-const RootApp = () => {
+export const App = () => {
     const { dropdownMenu } = UseContextControllers();
-    return (
+
+    // Keep the original app content in a layout component so we can add the autologin route
+    const AppLayout = () => (
         <>
             <Section className="w-full h-full">
                 <Header />
                 <Menu />
-                <Section className={clsx("container-app w-full h-full relative", dropdownMenu ? "pl-72" : "pl-0")}>
-                    <Section>
-                        <RouterControllers />
-                    </Section>
-                    <MusicControl />
-                </Section>
-                <WrapperPlaylist />
-                <WrapperComment />
             </Section>
             <ModalComponent />
             <WrapperVideo />
         </>
     );
-};
 
-export const App = () => {
     return (
-        <Provider store={store}>
-            <UseContextProvider>
-                <RootApp />
-            </UseContextProvider>
-        </Provider>
+        <BrowserRouter>
+            <Routes>
+                <Route path="/zalo-autologin" element={<ZaloAutoLogin />} />
+                <Route path="/*" element={<AppLayout />} />
+            </Routes>
+        </BrowserRouter>
     );
 };
