@@ -100,6 +100,7 @@ export const Menu = () => {
                                 <img
                                     className="w-6 h-6"
                                     src="https://res.cloudinary.com/phuockaito/image/upload/v1665568602/banner/732208_pblqlf.png"
+                                    alt="Download Android"
                                 />
                                 <p className="mb-0 text-base text-yellow-300">Download Android</p>
                             </a>
@@ -111,7 +112,7 @@ export const Menu = () => {
                                 rel="noreferrer"
                                 className="flex items-center justify-start gap-2 mb-0"
                             >
-                                <img className="w-6 h-6" src="/icon-zalo.svg" />
+                                <img className="w-6 h-6" src="/icon-zalo.svg" alt="Zalo Mini App" />
                                 <p className="mb-0 text-base text-yellow-300">Zalo Mini App</p>
                             </a>
                         </div>
@@ -122,7 +123,7 @@ export const Menu = () => {
                                 rel="noreferrer"
                                 className="flex items-center justify-start gap-2 mb-0"
                             >
-                                <img className="w-6 h-6" src="/icon-github.png" />
+                                <img className="w-6 h-6" src="/icon-github.png" alt="Github" />
                                 <p className="mb-0 text-base text-yellow-300">Github</p>
                             </a>
                         </div>

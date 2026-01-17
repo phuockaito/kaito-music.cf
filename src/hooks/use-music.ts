@@ -53,7 +53,7 @@ export const UseMusic = () => {
             ogTitleMeta?.setAttribute("content", name_music);
             handleOnPauseMusic(true);
         }
-    }, [_id_music, handleOnPauseMusic, image_music, name_music]);
+    }, [_id_music, handleOnPauseMusic, image_music, name_music, slug_name_music]);
 
     const handlePausePlayClick = React.useCallback(() => {
         if (playing) audio?.pause();

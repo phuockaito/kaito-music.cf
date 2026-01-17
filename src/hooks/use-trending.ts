@@ -13,7 +13,7 @@ export const UesTrending = () => {
 
     React.useEffect(() => {
         if (!data.length) getTrendingAPI({ _limit: 30 });
-    }, [error]);
+    }, [error, data.length, getTrendingAPI]);
 
     return {
         resultTrending,

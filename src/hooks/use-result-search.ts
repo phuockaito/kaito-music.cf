@@ -15,15 +15,15 @@ export const UseResultSearch = () => {
     const resultSearch = useAppSelector(searchStore);
     const { error } = resultSearch;
     // dispatch api
-    const fetchSearch = (params: ParamsUrl) => dispatch(getSearch(params));
+    const fetchSearch = React.useCallback((params: ParamsUrl) => dispatch(getSearch(params)), [dispatch]);
 
     // function
-    const openSearch = React.useCallback(() => setOpenSearch(true), [search]);
+    const openSearch = React.useCallback(() => setOpenSearch(true), [setOpenSearch]);
     const onChangeSearch = (e: React.ChangeEvent<HTMLInputElement>) => setSearch(e.target.value);
     const clear = React.useCallback(() => {
         setSearch("");
         setOpenSearch(false);
-    }, [search]);
+    }, [setOpenSearch]);
 
     React.useEffect(() => {
         typingTimeout.current = setTimeout(() => {
@@ -34,7 +34,7 @@ export const UseResultSearch = () => {
             }
         }, 500);
         return () => clearTimeout(typingTimeout.current);
-    }, [search, error]);
+    }, [search, error, openSearch, fetchSearch]);
 
     return {
         onChangeSearch,

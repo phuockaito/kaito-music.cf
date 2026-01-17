@@ -9,7 +9,7 @@ const Favorite = () => {
 
     React.useEffect(() => {
         if (!data.length) handleGetFavoriteAccount({ _limit: 30 });
-    }, [error, handleGetFavoriteAccount]);
+    }, [error, handleGetFavoriteAccount, data.length]);
 
     return loading ? (
         <ListLoading items={20} className="grid grid-cols-1 gap-2 lg:grid-cols-2 2xl:grid-cols-3" />

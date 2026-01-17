@@ -14,7 +14,7 @@ export const UesFavorite = () => {
 
     React.useEffect(() => {
         if (!data.length) getFavoriteAPI({ _limit: 30 });
-    }, [error]);
+    }, [error, data.length, getFavoriteAPI]);
 
     return {
         resultFavorite,
