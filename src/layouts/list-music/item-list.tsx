@@ -83,7 +83,7 @@ export const ItemList = ({
                 )}
             >
                 <div className="flex items-center">
-                    <div className="relative flex w-12 h-12 mr-3 cursor-pointer">
+                    <div className="flex relative mr-3 w-14 h-14 cursor-pointer">
                         <Image
                             src={image}
                             imageClassName={clsx("h-full w-full", active ? "opacity-40" : "group-hover:opacity-40")}
@@ -95,8 +95,8 @@ export const ItemList = ({
                                     style={{ left: "45%", top: "56%" }}
                                 />
                             ) : (
-                                <div className="absolute opacity-0 top-2/4 left-2/4 transform-50-center group-hover:opacity-100">
-                                    <AiOutlinePlayCircle className="text-white " size="2em" onClick={onClickPlay} />
+                                <div className="absolute top-2/4 left-2/4 opacity-0 transform-50-center group-hover:opacity-100">
+                                    <AiOutlinePlayCircle className="text-white" size="2em" onClick={onClickPlay} />
                                 </div>
                             )}
                         </Image>
@@ -110,7 +110,7 @@ export const ItemList = ({
                         classNameView="flex gap-2 items-center"
                     />
                     {childrenPros}
-                    <div className="flex items-center gap-2">
+                    <div className="flex gap-2 items-center">
                         {otherDot && (
                             <>
                                 <FavoriteIcon active={active} _id_music={_id} account_favorite={account_favorite} />
@@ -120,7 +120,7 @@ export const ItemList = ({
                                     nameMusic={nameMusic}
                                     srcMusic={src_music}
                                     link_mv={link_mv}
-                                    className={active ? "opacity-100" : "group-hover:opacity-100 opacity-0"}
+                                    className={active ? "opacity-100" : "opacity-0 group-hover:opacity-100"}
                                 />
                             </>
                         )}
